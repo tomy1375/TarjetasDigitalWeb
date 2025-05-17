@@ -1,0 +1,138 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold playfair text-gray-800">
+        La Tarjeta Digital
+      </a>
+      
+      <!-- Botón de menú móvil -->
+      <button id="mobile-menu-button" class="md:hidden flex items-center text-gray-700 focus:outline-none z-50" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      
+      <!-- Menú de escritorio -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="/" class="text-gray-700 hover:text-amber-800 transition">Inicio</a></li>
+          <li><a href="/#bodas" class="text-gray-700 hover:text-amber-800 transition">Bodas</a></li>
+          <li><a href="/#xv" class="text-gray-700 hover:text-amber-800 transition">XV Años</a></li>
+          <li><a href="/#precios" class="text-gray-700 hover:text-amber-800 transition">Precios</a></li>
+          <li><a href="/#contacto" class="text-gray-700 hover:text-amber-800 transition">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Menú móvil a pantalla completa (desde la derecha) -->
+<div id="mobile-menu" class="fixed inset-0 bg-black transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-40">
+  <div class="h-full w-full flex flex-col p-6 bg-black">
+    <!-- Logo en el menú móvil -->
+    <div class="flex justify-center mb-10 mt-16">
+      <a href="/" class="text-3xl font-bold playfair text-white">
+        La Tarjeta Digital
+      </a>
+    </div>
+    
+    <nav class="flex-grow flex items-center justify-center">
+      <ul class="flex flex-col space-y-6 text-center w-full">
+        <li><a href="/" class="block text-xl text-white hover:text-amber-300 transition py-3">Inicio</a></li>
+        <li><a href="/#bodas" class="block text-xl text-white hover:text-amber-300 transition py-3">Bodas</a></li>
+        <li><a href="/#xv" class="block text-xl text-white hover:text-amber-300 transition py-3">XV Años</a></li>
+        <li><a href="/#precios" class="block text-xl text-white hover:text-amber-300 transition py-3">Precios</a></li>
+        <li><a href="/#contacto" class="block text-xl text-white hover:text-amber-300 transition py-3">Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Footer del menú móvil -->
+    <div class="mt-auto pb-8 text-center text-gray-400 text-sm">
+      <p>&copy; {new Date().getFullYear()} La Tarjeta Digital</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Funcionalidad del menú móvil
+  function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Asegurarse de que los elementos existen
+    if (!mobileMenuButton || !mobileMenu) return;
+    
+    // Función para abrir el menú - con verificaciones de nulidad
+    function openMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.remove('translate-x-full');
+      }
+      
+      if (document.body) {
+        document.body.classList.add('overflow-hidden'); // Prevenir scroll
+      }
+      
+      if (mobileMenuButton) {
+        mobileMenuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        `;
+      }
+    }
+    
+    // Función para cerrar el menú - con verificaciones de nulidad
+    function closeMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.add('translate-x-full');
+      }
+      
+      if (document.body) {
+        document.body.classList.remove('overflow-hidden'); // Permitir scroll
+      }
+      
+      if (mobileMenuButton) {
+        mobileMenuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        `;
+      }
+    }
+    
+    // Manejar clic en el botón del menú
+    mobileMenuButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (mobileMenu && mobileMenu.classList.contains('translate-x-full')) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+    
+    // Cerrar el menú al hacer clic en un enlace
+    if (mobileMenu) {
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+    
+    // Cerrar el menú con la tecla Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('translate-x-full')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Inicializar en la carga inicial
+document.addEventListener('DOMContentLoaded', initMobileMenu);
+document.addEventListener('astro:after-swap', initMobileMenu);
+
+</script>

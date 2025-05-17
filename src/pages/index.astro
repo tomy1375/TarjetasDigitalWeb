@@ -1,11 +1,97 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import PhoneShowcase from '../components/PhoneShowcase.astro';
+import PricesModal from '../components/PricesModal.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="La Tarjeta Digital - Invitaciones digitales para bodas y XV años">
+  <Header />
+  <main>
+    <Hero />
+    
+    <PhoneShowcase 
+      id="bodas"
+      title="DISEÑOS DE REFERENCIA"
+      subtitle="MODERNOS Y MINIMALISTAS TOTALMENTE PERSONALIZADOS"
+      images={[
+        {
+          src: "/placeholder.svg?height=500&width=250&query=wedding couple holding hands closeup",
+          alt: "Invitación de boda 1",
+          name: "MARTINA & MARCOS"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=250&query=couple embracing in sunset",
+          alt: "Invitación de boda 2",
+          name: "NICOLE & ELIAN"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=250&query=couple walking on beach wedding",
+          alt: "Invitación de boda 3",
+          name: "CANDELA & ELIAS"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=250&query=couple in field at sunset",
+          alt: "Invitación de boda 4",
+          name: "GEORGINA & JOAQUÍN"
+        }
+      ]}
+      buttonText="VER DISEÑOS BODAS"
+      buttonLink="/bodas"
+    />
+    
+    <PhoneShowcase 
+      id="xv"
+      title="DISEÑOS PARA XV AÑOS"
+      subtitle="MODERNOS Y PERSONALIZADOS PARA TU GRAN DÍA"
+      images={[
+        {
+          src: "/placeholder.svg?height=500&width=250&query=elegant teen girl in black dress",
+          alt: "Invitación de XV años 1",
+          name: "MIS 15 AGUSTINA"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=250&query=teen girl in elegant dress",
+          alt: "Invitación de XV años 2",
+          name: "MIS 15 LARA"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=250&query=teen girl with orange background",
+          alt: "Invitación de XV años 3",
+          name: "MIS 15 AGOS"
+        },
+        {
+          src: "/placeholder.svg?height=500&width=250&query=teen girl with disco ball background",
+          alt: "Invitación de XV años 4",
+          name: "MIS 15 ZAIRA"
+        }
+      ]}
+      buttonText="VER DISEÑOS XV"
+      buttonLink="/xv"
+    />
+    
+    <ContactSection />
+    
+    <PricesModal />
+  </main>
+  <Footer />
 </Layout>
+
+<script>
+  // Script global para asegurarse de que todos los botones "VER PRECIOS" funcionen
+  document.addEventListener('astro:page-load', function() {
+    const modal = document.getElementById('precios-modal');
+    
+    // Asegurarse de que todos los botones "VER PRECIOS" abran el modal
+    document.querySelectorAll('.ver-precios-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        if (modal) {
+          modal.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,67 @@
+---
+---
+
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <!-- Video de fondo en loop -->
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      class="w-full h-full object-cover brightness-50"
+      poster="/placeholder.svg?height=1080&width=1920&query=elegant wedding couple in black and white"
+    >
+      <source src="/boda3.mp4" type="video/mp4" />
+      <!-- Fallback para navegadores que no soportan video -->
+      <img 
+        src="/placeholder.svg?height=1080&width=1920&query=elegant wedding couple in black and white" 
+        alt="Fondo de boda elegante" 
+        class="w-full h-full object-cover brightness-50"
+      />
+    </video>
+  </div>
+  
+  <div class="container mx-auto px-4 z-10 text-center">
+    <div class="mb-6">
+      <img src="/logo.png" alt="La Tarjeta Digital" class="h-20 mx-auto mb-8" />
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 playfair tracking-wide">
+        TÚ EVENTO MERECE UNA<br />
+        <span class="text-amber-100">INVITACIÓN <em>ÚNICA</em></span>
+      </h1>
+      <p class="text-white text-xl md:text-2xl mb-8">SORPRENDE A TUS INVITADOS</p>
+    </div>
+    
+    <a 
+      href="#bodas" 
+      class="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-3 px-8 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+    >
+      Chatear por WhatsApp
+    </a>
+    
+    <div class="mt-16 bg-amber-100/80 backdrop-blur-sm py-3 px-6 rounded-lg inline-block">
+      <p class="text-amber-900 font-medium">
+        ¿LA NECESITAS URGENTE? OFRECEMOS ENTREGA EN 24 HS
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos adicionales para asegurar que el video funcione bien en todos los dispositivos */
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Optimización para dispositivos móviles */
+  @media (max-width: 768px) {
+    video {
+      object-position: center;
+    }
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+---
+
+<div id="precios-modal" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-black/70" id="modal-backdrop"></div>
+  
+  <div class="relative z-10 w-full max-w-3xl mx-auto mt-20 bg-gray-900 rounded-lg overflow-hidden">
+    <div class="bg-amber-100 py-3 px-6 flex justify-between items-center">
+      <h3 class="text-lg font-semibold text-gray-800">LA TARJETA DIGITAL - INVITACIONES DIGITALES WEB</h3>
+      <button id="close-modal" class="text-gray-800 hover:text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <div class="p-6 text-center">
+      <h2 class="text-4xl font-bold mb-2 text-amber-200 playfair">MODELOS Y PRECIOS</h2>
+      <p class="text-gray-300 mb-8">
+        Puedes elegir el diseño de invitación que más te guste, todo lo personalizaremos a tu gusto y según el modelo.
+      </p>
+      
+      <div class="space-y-6">
+        <!-- Paquete Estándar -->
+        <div class="bg-white rounded-lg overflow-hidden">
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">ESTÁNDAR</h3>
+                <p class="text-green-500 font-medium">Confirmación por WhatsApp</p>
+                <p class="text-gray-600 text-sm mt-2">
+                  para que tus invitados solo confirmen su asistencia, sin recopilar su información.
+                </p>
+              </div>
+              <div class="text-right">
+                <div class="bg-amber-600 text-white text-xs px-2 py-1 rounded mb-1">TRANSFERENCIA 25% OFF</div>
+                <div class="text-4xl font-bold text-gray-800">$29.900</div>
+                <div class="text-gray-500 text-sm">
+                  TARJETA 💳<br />
+                  3 CUOTAS DE $12.300
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Paquete Premium -->
+        <div class="bg-white rounded-lg overflow-hidden border-2 border-amber-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">PREMIUM</h3>
+                <p class="text-orange-500 font-medium">Sistema de confirmación propio</p>
+                <p class="text-gray-600 text-sm mt-2">
+                  para que tus invitados confirmen fácilmente su asistencia, recopilando información como alimentación, acompañantes y música, con lista final en PDF/Excel.
+                </p>
+              </div>
+              <div class="text-right">
+                <div class="bg-amber-600 text-white text-xs px-2 py-1 rounded mb-1">TRANSFERENCIA 25% OFF</div>
+                <div class="text-4xl font-bold text-gray-800">$34.800</div>
+                <div class="text-gray-500 text-sm">
+                  TARJETA 💳<br />
+                  3 CUOTAS DE $14.300
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Paquete Premium Plus -->
+        <div class="bg-white rounded-lg overflow-hidden">
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">PREMIUM PLUS</h3>
+                <p class="text-orange-500 font-medium">Sistema de confirmación + trivia interactiva</p>
+                <p class="text-gray-600 text-sm mt-2">
+                  para que tus invitados jueguen + <span class="text-purple-500">álbum de fotos con código QR</span>, para que lo imprimas y tus invitados suban sus fotos fácilmente durante la fiesta.
+                </p>
+              </div>
+              <div class="text-right">
+                <div class="bg-amber-600 text-white text-xs px-2 py-1 rounded mb-1">TRANSFERENCIA 25% OFF</div>
+                <div class="text-4xl font-bold text-gray-800">$44.400</div>
+                <div class="text-gray-500 text-sm">
+                  TARJETA 💳<br />
+                  3 CUOTAS DE $18.300
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initPricesModal() {
+    const modal = document.getElementById('precios-modal');
+    const closeButton = document.getElementById('close-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    
+    // Verificar que los elementos existen
+    if (!modal || !closeButton || !modalBackdrop) {
+      console.warn('Algunos elementos del modal no se encontraron');
+      return;
+    }
+    
+    // Función para abrir el modal
+    function openModal() {
+      if (modal) modal.classList.remove('hidden');
+    }
+    
+    // Función para cerrar el modal
+    function closeModal() {
+      if (modal) modal.classList.add('hidden');
+    }
+    
+    try {
+      // Limpiar event listeners anteriores para evitar duplicados
+      const newCloseButton = closeButton.cloneNode(true) as HTMLButtonElement;
+      if (closeButton.parentNode) {
+        closeButton.parentNode.replaceChild(newCloseButton, closeButton);
+        
+        // Asignar nuevos event listeners
+        newCloseButton.addEventListener('click', closeModal);
+      }
+      
+      // Limpiar event listener del backdrop
+      const newModalBackdrop = modalBackdrop.cloneNode(true) as HTMLDivElement;
+      if (modalBackdrop.parentNode) {
+        modalBackdrop.parentNode.replaceChild(newModalBackdrop, modalBackdrop);
+        
+        // Asignar nuevo event listener al backdrop
+        newModalBackdrop.addEventListener('click', closeModal);
+      }
+      
+      // Inicializar botones "VER PRECIOS" en toda la página
+      document.querySelectorAll('[id^="ver-precios-"]').forEach(button => {
+        try {
+          // Verificar que el elemento y su padre existen
+          if (button && button.parentNode) {
+            // Limpiar event listeners anteriores
+            const newButton = button.cloneNode(true) as HTMLButtonElement;
+            button.parentNode.replaceChild(newButton, button);
+            
+            // Asignar nuevo event listener
+            newButton.addEventListener('click', openModal);
+          }
+        } catch (err) {
+          console.warn('Error al inicializar botón de precios:', err);
+        }
+      });
+    } catch (err) {
+      console.warn('Error al inicializar modal de precios:', err);
+    }
+  }
+  
+  // Ejecutar en cada carga de página
+  document.addEventListener('astro:page-load', initPricesModal);
+  
+  // También ejecutar inmediatamente para la carga inicial
+  initPricesModal();
+</script>

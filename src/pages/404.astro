@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Página no encontrada - La Tarjeta Digital">
+  <Header />
+  
+  <main class="pt-32 pb-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-6xl font-bold mb-6 text-amber-800 playfair">404</h1>
+      <p class="text-2xl mb-8">Página no encontrada</p>
+      <p class="text-gray-600 mb-8 max-w-lg mx-auto">
+        Lo sentimos, la página que estás buscando no existe o ha sido movida.
+      </p>
+      <a 
+        href="/" 
+        class="inline-block bg-amber-700 hover:bg-amber-800 text-white font-medium py-3 px-8 rounded-md transition"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

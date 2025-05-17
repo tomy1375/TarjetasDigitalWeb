@@ -1,22 +1,53 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="La Tarjeta Digital - Invitaciones digitales para bodas y XV años" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+	:root {
+		--accent: #c8b6a6;
+		--accent-dark: #a89985;
+		--black: #13151a;
+		--gray: #747474;
+		--gray-light: #e1e1e1;
+		--gray-dark: #4a4a4a;
+	}
+	html {
+		font-family: 'Poppins', system-ui, sans-serif;
+		background: #ffffff;
+		background-size: 224px;
+		color: var(--black);
+		scroll-behavior: smooth;
+	}
+
+	h1, h2, h3, h4, h5 {
+		font-family: 'Playfair Display', serif;
+	}
+
+	.playfair {
+		font-family: 'Playfair Display', serif;
+	}
+
+	.poppins {
+		font-family: 'Poppins', sans-serif;
 	}
 </style>

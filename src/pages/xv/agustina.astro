@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Mis 15 Agustina - Invitación Digital">
+  <div class="invitation-container">
+    <!-- Portada -->
+    <section class="invitation-section h-screen flex flex-col justify-center items-center relative">
+      <img 
+        src="/placeholder.svg?height=1080&width=1920&query=elegant teen girl in black dress" 
+        alt="Mis 15 Agustina" 
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      
+      <div class="z-10 text-center text-white px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 playfair">MIS 15 AGUSTINA</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+          TE INVITO A CELEBRAR CONMIGO ESTE MOMENTO TAN ESPECIAL
+        </p>
+        <button id="enter-btn" class="bg-pink-600 hover:bg-pink-700 text-white font-medium py-2 px-6 rounded transition">
+          INGRESAR
+        </button>
+      </div>
+    </section>
+    
+    <!-- Contenido principal (inicialmente oculto) -->
+    <div id="invitation-content" class="hidden">
+      <!-- Cuenta regresiva -->
+      <section class="invitation-section py-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-pink-600 playfair">¡MIS 15 AÑOS!</h2>
+        
+        <div class="countdown-container flex justify-center gap-4 md:gap-8 mb-12">
+          <div class="countdown-item">
+            <div id="days" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">DÍAS</div>
+          </div>
+          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+          <div class="countdown-item">
+            <div id="hours" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">HORAS</div>
+          </div>
+          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+          <div class="countdown-item">
+            <div id="minutes" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">MINUTOS</div>
+          </div>
+          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+          <div class="countdown-item">
+            <div id="seconds" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">SEGUNDOS</div>
+          </div>
+        </div>
+        
+        <p class="text-lg max-w-2xl mx-auto mb-8 px-4">
+          ESTOY MUY EMOCIONADA DE COMPARTIR ESTE DÍA TAN ESPECIAL CONTIGO
+        </p>
+        
+        <button id="play-music" class="bg-pink-600 hover:bg-pink-700 text-white rounded-full p-3 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <audio id="background-music" loop>
+          <source src="/placeholder-music.mp3" type="audio/mp3">
+        </audio>
+      </section>
+      
+      <!-- Resto de secciones similares a las invitaciones de boda pero adaptadas para XV años -->
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Scripts similares a las invitaciones de boda
+  document.getElementById('enter-btn').addEventListener('click', function() {
+    document.getElementById('invitation-content').classList.remove('hidden');
+    document.getElementById('enter-btn').closest('.invitation-section').classList.add('hidden');
+    
+    // Iniciar cuenta regresiva
+    startCountdown();
+  });
+  
+  // Cuenta regresiva
+  function startCountdown() {
+    const eventDate = new Date('August 17, 2025 21:00:00').getTime();
+    
+    const countdown = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+      }
+    }, 1000);
+  }
+  
+  // Reproducir/pausar música
+  document.getElementById('play-music').addEventListener('click', function() {
+    const music = document.getElementById('background-music');
+    if (music.paused) {
+      music.play();
+      this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause"><rect width="4" height="16" x="6" y="4"/><rect width="4" height="16" x="14" y="4"/></svg>';
+    } else {
+      music.pause();
+      this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+    }
+  });
+</script>
+
+<style>
+  .invitation-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .invitation-section {
+    scroll-margin-top: 80px;
+  }
+  
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

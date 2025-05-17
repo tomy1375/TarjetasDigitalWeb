@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Diseños de XV Años - La Tarjeta Digital">
+  <Header />
+  
+  <main>
+    <section class="pt-32 pb-20 bg-gradient-to-b from-pink-900 to-purple-900 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6 playfair">
+          TUS XV AÑOS MERECEN UNA<br />
+          <span class="text-pink-200">INVITACIÓN <em>ÚNICA</em></span>
+        </h1>
+        <p class="text-xl mb-12">SORPRENDE A TUS INVITADOS</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              name: "MIS 15 AGUSTINA",
+              image: "/placeholder.svg?height=500&width=250&query=elegant teen girl in black dress",
+              link: "/xv/agustina"
+            },
+            {
+              name: "MIS 15 LARA",
+              image: "/placeholder.svg?height=500&width=250&query=teen girl in elegant dress",
+              link: "/xv/lara"
+            },
+            {
+              name: "MIS 15 AGOS",
+              image: "/placeholder.svg?height=500&width=250&query=teen girl with orange background",
+              link: "/xv/agos"
+            },
+            {
+              name: "MIS 15 ZAIRA",
+              image: "/placeholder.svg?height=500&width=250&query=teen girl with disco ball background",
+              link: "/xv/zaira"
+            }
+          ].map(design => (
+            <div class="flex flex-col items-center">
+              <a href={design.link} class="block relative mb-4 transform transition-transform hover:scale-105">
+                <div class="phone-mockup">
+                  <img 
+                    src={design.image || "/placeholder.svg"} 
+                    alt={design.name}
+                    class="w-[250px] h-[500px] object-cover rounded-3xl border-8 border-black relative z-10"
+                  />
+                  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-b-xl z-20"></div>
+                </div>
+              </a>
+              <h3 class="text-lg font-medium">{design.name}</h3>
+              <a 
+                href={design.link} 
+                class="mt-2 text-pink-300 hover:text-pink-200 transition"
+              >
+                Ver invitación →
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .phone-mockup {
+    position: relative;
+    padding: 0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+  }
+</style>

@@ -1,0 +1,763 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Candela & Elias - Invitación de Boda">
+  <div class="invitation-container">
+    <!-- Portada -->
+    <section class="invitation-section h-screen flex flex-col justify-center items-center relative" id="portada-section">
+      <img 
+        src="/cas1.jpg" 
+        alt="Candela y Elias" 
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      
+      <div class="z-10 text-center text-white px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 playfair">CANDELA & ELIAS</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+          NOS EMBARCAMOS EN UNA AVENTURA Y NUESTRA BODA NO ESTARÍA COMPLETA SIN TU PRESENCIA
+        </p>
+        <button id="enter-btn" class="bg-blue-700 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded transition">
+          INGRESAR
+        </button>
+      </div>
+    </section>
+    
+    <!-- Contenido principal (inicialmente oculto) -->
+    <div id="invitation-content" class="hidden">
+      <!-- Nos casamos -->
+      <section class="invitation-section text-center">
+        <!-- Foto principal - Mucho más grande -->
+        <div class="container mx-auto  mb-12">
+          <div class="w-full">
+            <img 
+              src="/cas3.jpg" 
+              alt="Candela y Elias" 
+              class="w-full h-[65vh] object-cover  shadow-lg"
+            />
+          </div>
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-700 playfair">¡NOS CASAMOS!</h2>
+        
+        <div class="countdown-container flex justify-center gap-4 md:gap-8 mb-12">
+          <div class="countdown-item">
+            <div id="days" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">DÍAS</div>
+          </div>
+          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+          <div class="countdown-item">
+            <div id="hours" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">HORAS</div>
+          </div>
+          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+          <div class="countdown-item">
+            <div id="minutes" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">MINUTOS</div>
+          </div>
+          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+          <div class="countdown-item">
+            <div id="seconds" class="text-3xl md:text-5xl font-bold">00</div>
+            <div class="text-xs uppercase text-gray-500">SEGUNDOS</div>
+          </div>
+        </div>
+        
+      <div class="max-w-2xl mx-auto px-4 py-8 mb-8 bg-blue-700 text-center relative">
+  <div class="w-1/2 h-px bg-white mx-auto mb-4"></div>
+
+  <p class="text-lg text-white uppercase tracking-wide leading-relaxed">
+    PROMETEMOS AMARNOS Y CUIDARNOS MUTUAMENTE MIENTRAS CAMINAMOS JUNTOS POR EL CAMINO DEL MATRIMONIO.
+  </p>
+
+  <div class="w-1/2 h-px bg-white mx-auto mt-4"></div>
+</div>
+
+        
+        <button id="play-music" class="fixed bottom-4 right-4 bg-blue-700 hover:bg-blue-700 text-white rounded-full p-3 transition z-50 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </button>
+
+        <audio id="background-music" loop>
+          <source src="/peru1.mp3" type="audio/mp3">
+        </audio>
+      </section>
+      
+      <!-- Cuándo -->
+      <section class="invitation-section py-16 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <div class="mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-700"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+            </div>
+            <h2 class="text-2xl font-medium mb-2 text-gray-700">¿CUÁNDO?</h2>
+            <p class="text-xl font-bold mb-8 text-blue-700">13 DE SEPTIEMBRE 2025</p>
+            
+            <div class="border-t border-b border-gray-200 py-8 my-8">
+              <h3 class="text-xl font-medium mb-6 playfair">ITINERARIO</h3>
+              
+              <div class="mb-10">
+                <div class="mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-700"><path d="M12 21.35a1.5 1.5 0 0 1-2.53-.3c-.72-1.8-2.74-2.85-4.38-2.34-2.38.75-4.8-1.54-4.04-3.92.51-1.63-.54-3.64-2.35-4.35a1.5 1.5 0 0 1 0-2.88c1.81-.71 2.86-2.72 2.35-4.35-.76-2.38 1.66-4.67 4.04-3.92 1.64-.51 3.66.54 4.38-2.34Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h4 class="text-lg font-bold mb-1">CIVIL</h4>
+                <p class="text-gray-600 mb-4">| 12:30 HS |</p>
+                <button class="inline-block border border-blue-700 text-blue-700 hover:bg-blue-50 font-medium py-2 px-6 rounded transition">
+                  CÓMO LLEGAR
+                </button>
+              </div>
+              
+              <div>
+                <div class="mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-700"><path d="M18 6V4H6v2"/><path d="M18 18v2H6v-2"/><path d="M16 4h2v16h-2"/><path d="M6 4h2v16H6"/><path d="M10 14h4"/><path d="M10 10h4"/></svg>
+                </div>
+                <h4 class="text-lg font-bold mb-1">CEREMONIA</h4>
+                <p class="text-gray-600 mb-4">| 20:30 HS |</p>
+                <button class="inline-block border border-blue-700 text-blue-700 hover:bg-blue-50 font-medium py-2 px-6 rounded transition">
+                  CÓMO LLEGAR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Regalo -->
+      <section class="invitation-section py-16 text-center bg-blue-700">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <div class="mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-700"><path d="M12 3v13"/><path d="M5 10h14"/><path d="M5 10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2"/><path d="M6 10v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8"/><path d="M6 15h12"/></svg>
+            </div>
+            <h2 class="text-2xl font-medium mb-6 text-white">EL REGALO</h2>
+            <p class="text-white mb-6">
+              NUESTRO MEJOR REGALO ES QUE ESTÉS CON NOSOTROS EN NUESTRO DÍA, PERO SI QUIERES HACERNOS UN OBSEQUIO, AQUÍ ESTÁ NUESTRO NÚMERO DE CUENTA:
+            </p>
+            <button id="show-account" class="bg-transparent border border-white text-white font-medium py-2 px-6 rounded">
+  VER CUENTA
+</button>
+
+            
+            <div id="account-details" class="hidden mt-6 p-4 bg-gray-50 rounded-lg">
+              <p class="font-medium text-gray-700 mb-2">Banco: Banco Nación</p>
+              <p class="font-medium text-gray-700 mb-2">Titular: Candela Rodríguez</p>
+              <p class="font-medium text-gray-700 mb-4">Alias: BODA.CANDELA.ELIAS</p>
+              <p class="text-sm text-gray-600">¡Muchas gracias por tu regalo!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Dress Code -->
+      <section class="invitation-section py-16 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <div class="mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-700"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+            </div>
+            <h2 class="text-2xl font-medium mb-2 text-gray-700">DRESS CODE</h2>
+            <p class="text-xl font-bold mb-6 text-blue-700">FORMAL ELEGANTE</p>
+            <hr class="w-24 mx-auto border-t-2 border-gray-200 mb-6" />
+            <p class="text-gray-600">
+              EL BLANCO ES UN COLOR HERMOSO,<br />
+              PERO EN NUESTRA BODA ES<br />
+              EXCLUSIVO PARA LA NOVIA
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Confirmación -->
+      <section class="invitation-section py-16 text-center bg-blue-700">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <div class="mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto">
+                <rect width="16" height="13" x="4" y="7" rx="2"/>
+                <path d="m5 7-1 4h16l-1-4"/>
+                <path d="M4 11v10"/>
+                <path d="M20 11v10"/>
+                <path d="M8 7V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-medium mb-6 text-white">CONFIRMÁ TU ASISTENCIA</h2>
+            <p class="text-white mb-2">ANTES DEL 10 DE AGOSTO</p>
+            
+            <!-- Botón para mostrar modal de valores de tarjeta -->
+            <button id="show-card-values" class="mb-6 bg-transparent border border-white text-white font-medium py-2 px-6 rounded">
+              VALORES TARJETA
+            </button>
+            
+            <!-- Modal de valores de tarjeta (inicialmente oculto) -->
+            <div id="card-values-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+              <div class="absolute inset-0 bg-black/70" id="modal-backdrop"></div>
+              <div class="relative z-10 bg-white rounded-lg p-6 max-w-md w-full mx-4">
+                <button id="close-card-values" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                  </svg>
+                </button>
+                <h3 class="text-xl font-bold text-blue-700 mb-4 text-center">VALORES TARJETA</h3>
+                <div class="space-y-4">
+                  <p class="text-lg font-bold text-center">DICIEMBRE $47.200</p>
+                  <div class="border-t border-gray-200 pt-4">
+                    <p class="mb-2">4 a 10 AÑOS ABONAN mitad de tarjeta</p>
+                    <p class="mb-4">0 a 3 NO ABONAN TARJETA</p>
+                  </div>
+                  <div class="bg-gray-100 p-4 rounded-lg">
+                    <p class="font-medium">CUENTA DE PAGO</p>
+                    <p class="font-bold">ALIAS: BOD338</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form id="rsvp-form" class="text-left">
+              <div class="mb-4">
+                <label for="attendance" class="block text-sm font-medium text-white mb-1">¿Asistirás a nuestra boda?</label>
+                <select id="attendance" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                  <option value="yes">Sí, asistiré</option>
+                  <option value="no">No podré asistir</option>
+                </select>
+              </div>
+              
+              <div id="guests-container" class="mb-4">
+                <label for="guests" class="block text-sm font-medium text-white mb-1">¿Por cuántas personas confirmarás?</label>
+                <select id="guests" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                  <option value="1">1 persona</option>
+                  <option value="2">2 personas</option>
+                  <option value="3">3 personas</option>
+                  <option value="4">4 personas</option>
+                </select>
+              </div>
+
+              <div id="guests-forms">
+                <div id="guest-1" class="mb-6">
+                  <p class="font-medium mb-2 text-white">Persona 1</p>
+                  <div class="mb-3">
+                    <label for="name-1" class="block text-sm font-medium text-white mb-1">Nombre *</label>
+                    <input type="text" id="name-1" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastname-1" class="block text-sm font-medium text-white mb-1">Apellido *</label>
+                    <input type="text" id="lastname-1" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div>
+                    <label for="diet-1" class="block text-sm font-medium text-white mb-1">¿Algún requerimiento en la alimentación?</label>
+                    <select id="diet-1" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                      <option value="none">Ninguno</option>
+                      <option value="vegetarian">Vegetariano</option>
+                      <option value="vegan">Vegano</option>
+                      <option value="celiac">Celíaco</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <!-- Formularios para personas adicionales (inicialmente ocultos) -->
+                <div id="guest-2" class="mb-6 hidden">
+                  <p class="font-medium mb-2 text-white">Persona 2</p>
+                  <div class="mb-3">
+                    <label for="name-2" class="block text-sm font-medium text-white mb-1">Nombre *</label>
+                    <input type="text" id="name-2" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastname-2" class="block text-sm font-medium text-white mb-1">Apellido *</label>
+                    <input type="text" id="lastname-2" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div>
+                    <label for="diet-2" class="block text-sm font-medium text-white mb-1">¿Algún requerimiento en la alimentación?</label>
+                    <select id="diet-2" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                      <option value="none">Ninguno</option>
+                      <option value="vegetarian">Vegetariano</option>
+                      <option value="vegan">Vegano</option>
+                      <option value="celiac">Celíaco</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div id="guest-3" class="mb-6 hidden">
+                  <p class="font-medium mb-2 text-white">Persona 3</p>
+                  <div class="mb-3">
+                    <label for="name-3" class="block text-sm font-medium text-white mb-1">Nombre *</label>
+                    <input type="text" id="name-3" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastname-3" class="block text-sm font-medium text-white mb-1">Apellido *</label>
+                    <input type="text" id="lastname-3" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div>
+                    <label for="diet-3" class="block text-sm font-medium text-white mb-1">¿Algún requerimiento en la alimentación?</label>
+                    <select id="diet-3" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                      <option value="none">Ninguno</option>
+                      <option value="vegetarian">Vegetariano</option>
+                      <option value="vegan">Vegano</option>
+                      <option value="celiac">Celíaco</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div id="guest-4" class="mb-6 hidden">
+                  <p class="font-medium mb-2 text-white">Persona 4</p>
+                  <div class="mb-3">
+                    <label for="name-4" class="block text-sm font-medium text-white mb-1">Nombre *</label>
+                    <input type="text" id="name-4" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastname-4" class="block text-sm font-medium text-white mb-1">Apellido *</label>
+                    <input type="text" id="lastname-4" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+                  </div>
+                  <div>
+                    <label for="diet-4" class="block text-sm font-medium text-white mb-1">¿Algún requerimiento en la alimentación?</label>
+                    <select id="diet-4" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                      <option value="none">Ninguno</option>
+                      <option value="vegetarian">Vegetariano</option>
+                      <option value="vegan">Vegano</option>
+                      <option value="celiac">Celíaco</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div id="music-container" class="mb-4">
+                <label for="music" class="block text-sm font-medium text-white mb-1">Recomendar música</label>
+                <input type="text" id="music" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" placeholder="¿Qué canción no puede faltar?" />
+              </div>
+
+              <button type="submit" class="w-full bg-white text-blue-700 font-medium py-2 px-6 rounded">
+                Confirmar
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Trivia -->
+      <section class="invitation-section py-16 bg-blue-50 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <h2 class="text-2xl font-medium mb-6 text-gray-800">¿CUÁNTO NOS CONOCES?</h2>
+            <p class="text-gray-600 mb-8">Responde estas preguntas y descubre cuánto sabes de nosotros</p>
+            
+            <div id="trivia-container">
+              <div id="trivia-questions">
+                <div class="question" data-question="1">
+                  <h3 class="text-xl font-medium mb-4 text-blue-700">¿Dónde nos conocimos?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">En la universidad</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="true">En la fiesta de un amigo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">En el trabajo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Por una app de citas</button>
+                  </div>
+                </div>
+                
+                <div class="question hidden" data-question="2">
+                  <h3 class="text-xl font-medium mb-4 text-blue-700">¿Cuánto tiempo llevamos juntos?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">2 años</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">3 años</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="true">5 años</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">7 años</button>
+                  </div>
+                </div>
+                
+                <div class="question hidden" data-question="3">
+                  <h3 class="text-xl font-medium mb-4 text-blue-700">¿Cuál es nuestro lugar favorito para vacacionar?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Montañas</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="true">Playa</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Ciudad</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Campo</button>
+                  </div>
+                </div>
+                
+                <div class="question hidden" data-question="4">
+                  <h3 class="text-xl font-medium mb-4 text-blue-700">¿Quién propuso matrimonio?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="true">Elias</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Candela</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Fue mutuo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-blue-100 transition" data-correct="false">Los padres arreglaron todo</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="trivia-results" class="hidden">
+                <h3 class="text-2xl font-bold mb-4 text-blue-700">¡Resultados!</h3>
+                <p class="text-lg mb-4">Has acertado <span id="correct-answers">0</span> de 4 preguntas</p>
+                <div id="result-message" class="mb-6 p-4 bg-blue-100 rounded-lg"></div>
+                <button id="restart-trivia" class="bg-blue-700 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded transition">
+                  Volver a jugar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Fotos -->
+      <section class="invitation-section py-16 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <h2 class="text-2xl font-medium mb-6 text-gray-800">QUEREMOS VER TUS FOTOS</h2>
+            <p class="text-gray-600 mb-6">
+              PUEDEN USAR NUESTRO # EN TODAS SUS PUBLICACIONES DE INSTAGRAM<br />
+              <span class="font-bold text-blue-700">#ELVIAJEMASLARCO</span>
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Foto final -->
+      <section class="invitation-section py-16 text-center bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="w-full">
+            <img 
+              src="/cas1.jpg" 
+              alt="Candela y Elias" 
+              class="w-full h-[70vh] object-cover rounded-lg shadow-lg mb-8 max-w-4xl mx-auto"
+            />
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 playfair mt-6">CANDELA & ELIAS</h2>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Función principal de inicialización
+  function initInvitation() {
+    console.log('Inicializando invitación...');
+    
+    // Solución para el botón INGRESAR
+    const enterBtn = document.getElementById('enter-btn');
+    if (enterBtn) {
+      // Eliminar event listeners anteriores
+      const newEnterBtn = enterBtn.cloneNode(true);
+      if (enterBtn.parentNode) {
+        enterBtn.parentNode.replaceChild(newEnterBtn, enterBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newEnterBtn.addEventListener('click', function() {
+        showContent();
+      });
+    }
+    
+    // Inicializar botón de cuenta
+    const showAccountBtn = document.getElementById('show-account');
+    if (showAccountBtn) {
+      // Eliminar event listeners anteriores
+      const newShowAccountBtn = showAccountBtn.cloneNode(true);
+      if (showAccountBtn.parentNode) {
+        showAccountBtn.parentNode.replaceChild(newShowAccountBtn, showAccountBtn);
+      }
+      
+      // Agregar nuevo event listener con anotación de tipo para this
+      newShowAccountBtn.addEventListener('click', function(this: HTMLButtonElement) {
+        const accountDetails = document.getElementById('account-details');
+        if (accountDetails?.classList.contains('hidden')) {
+          accountDetails.classList.remove('hidden');
+          this.textContent = 'OCULTAR CUENTA';
+        } else {
+          accountDetails?.classList.add('hidden');
+          this.textContent = 'VER CUENTA';
+        }
+      });
+    }
+    
+    // Inicializar botón de música
+    const playMusicBtn = document.getElementById('play-music');
+    if (playMusicBtn) {
+      // Eliminar event listeners anteriores
+      const newPlayMusicBtn = playMusicBtn.cloneNode(true);
+      if (playMusicBtn.parentNode) {
+        playMusicBtn.parentNode.replaceChild(newPlayMusicBtn, playMusicBtn);
+      }
+      
+      // Agregar nuevo event listener con anotación de tipo para this
+      newPlayMusicBtn.addEventListener('click', function(this: HTMLButtonElement) {
+        const music = document.getElementById('background-music') as HTMLAudioElement;
+        if (music?.paused) {
+          music.play();
+          this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause"><rect width="4" height="16" x="6" y="4"/><rect width="4" height="16" x="14" y="4"/></svg>';
+        } else {
+          music?.pause();
+          this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+        }
+      });
+    }
+    
+    // Inicializar modal de valores de tarjeta
+    const showCardValuesBtn = document.getElementById('show-card-values');
+    const cardValuesModal = document.getElementById('card-values-modal');
+    const closeCardValuesBtn = document.getElementById('close-card-values');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    
+    if (showCardValuesBtn && cardValuesModal) {
+      // Eliminar event listeners anteriores
+      const newShowCardValuesBtn = showCardValuesBtn.cloneNode(true);
+      if (showCardValuesBtn.parentNode) {
+        showCardValuesBtn.parentNode.replaceChild(newShowCardValuesBtn, showCardValuesBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newShowCardValuesBtn.addEventListener('click', function() {
+        cardValuesModal?.classList.remove('hidden');
+      });
+    }
+    
+    if (closeCardValuesBtn && cardValuesModal) {
+      // Eliminar event listeners anteriores
+      const newCloseCardValuesBtn = closeCardValuesBtn.cloneNode(true);
+      if (closeCardValuesBtn.parentNode) {
+        closeCardValuesBtn.parentNode.replaceChild(newCloseCardValuesBtn, closeCardValuesBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newCloseCardValuesBtn.addEventListener('click', function() {
+        cardValuesModal?.classList.add('hidden');
+      });
+    }
+    
+    if (modalBackdrop && cardValuesModal) {
+      // Eliminar event listeners anteriores
+      const newModalBackdrop = modalBackdrop.cloneNode(true);
+      if (modalBackdrop.parentNode) {
+        modalBackdrop.parentNode.replaceChild(newModalBackdrop, modalBackdrop);
+      }
+      
+      // Agregar nuevo event listener
+      newModalBackdrop.addEventListener('click', function() {
+        cardValuesModal?.classList.add('hidden');
+      });
+    }
+    
+    // Inicializar selector de asistencia
+    const attendanceSelect = document.getElementById('attendance') as HTMLSelectElement;
+    const guestsContainer = document.getElementById('guests-container');
+    const guestsForms = document.getElementById('guests-forms');
+    const musicContainer = document.getElementById('music-container');
+    
+    if (attendanceSelect) {
+      // Eliminar event listeners anteriores
+      const newAttendanceSelect = attendanceSelect.cloneNode(true);
+      if (attendanceSelect.parentNode) {
+        attendanceSelect.parentNode.replaceChild(newAttendanceSelect, attendanceSelect);
+      }
+      
+      // Agregar nuevo event listener
+      newAttendanceSelect.addEventListener('change', function(this: HTMLSelectElement) {
+        if (this.value === 'yes') {
+          guestsContainer?.classList.remove('hidden');
+          guestsForms?.classList.remove('hidden');
+          musicContainer?.classList.remove('hidden');
+        } else {
+          guestsContainer?.classList.add('hidden');
+          guestsForms?.classList.add('hidden');
+          musicContainer?.classList.add('hidden');
+        }
+      });
+    }
+    
+    // Inicializar selector de número de invitados
+    const guestsSelect = document.getElementById('guests') as HTMLSelectElement;
+    
+    if (guestsSelect) {
+      // Eliminar event listeners anteriores
+      const newGuestsSelect = guestsSelect.cloneNode(true);
+      if (guestsSelect.parentNode) {
+        guestsSelect.parentNode.replaceChild(newGuestsSelect, guestsSelect);
+      }
+      
+      // Agregar nuevo event listener
+      newGuestsSelect.addEventListener('change', function(this: HTMLSelectElement) {
+        const numGuests = parseInt(this.value);
+        
+        // Ocultar todos los formularios de invitados primero
+        for (let i = 1; i <= 4; i++) {
+          const guestForm = document.getElementById(`guest-${i}`);
+          if (guestForm) {
+            if (i <= numGuests) {
+              guestForm.classList.remove('hidden');
+            } else {
+              guestForm.classList.add('hidden');
+            }
+          }
+        }
+      });
+    }
+    
+    // Inicializar trivia
+    initTrivia();
+  }
+  
+  // Función para mostrar el contenido principal
+  function showContent() {
+    const invitationContent = document.getElementById('invitation-content');
+    const portadaSection = document.getElementById('portada-section');
+    
+    if (invitationContent) invitationContent.classList.remove('hidden');
+    if (portadaSection) portadaSection.classList.add('hidden');
+    
+    // Iniciar cuenta regresiva
+    startCountdown();
+  }
+  
+  // Inicializar trivia
+  function initTrivia() {
+    // Reiniciar variables
+    currentQuestion = 1;
+    correctAnswers = 0;
+    
+    // Resetear todas las preguntas
+    document.querySelectorAll('.question').forEach(question => {
+      question.classList.add('hidden');
+    });
+    const firstQuestion = document.querySelector('.question[data-question="1"]');
+    if (firstQuestion) firstQuestion.classList.remove('hidden');
+    
+    // Resetear opciones
+    document.querySelectorAll('.trivia-option').forEach(option => {
+      // Eliminar event listeners anteriores
+      const newOption = option.cloneNode(true);
+      if (option.parentNode) {
+        option.parentNode.replaceChild(newOption, option);
+      }
+      
+      // Agregar nuevo event listener con anotación de tipo para this
+      newOption.addEventListener('click', handleTriviaOptionClick);
+    });
+    
+    // Reiniciar trivia
+    const restartTriviaBtn = document.getElementById('restart-trivia');
+    if (restartTriviaBtn) {
+      // Eliminar event listeners anteriores
+      const newRestartBtn = restartTriviaBtn.cloneNode(true);
+      if (restartTriviaBtn.parentNode) {
+        restartTriviaBtn.parentNode.replaceChild(newRestartBtn, restartTriviaBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newRestartBtn.addEventListener('click', initTrivia);
+    }
+    
+    // Mostrar preguntas y ocultar resultados
+    const triviaQuestions = document.getElementById('trivia-questions');
+    const triviaResults = document.getElementById('trivia-results');
+    if (triviaQuestions) triviaQuestions.classList.remove('hidden');
+    if (triviaResults) triviaResults.classList.add('hidden');
+  }
+  
+  // Variables para trivia
+  let currentQuestion = 1;
+  let correctAnswers = 0;
+  
+  // Manejar clic en opción de trivia
+  function handleTriviaOptionClick(this: HTMLElement) {
+    // Verificar respuesta
+    if (this.getAttribute('data-correct') === 'true') {
+      correctAnswers++;
+      this.classList.add('bg-green-100', 'border-green-500');
+    } else {
+      this.classList.add('bg-red-100', 'border-red-500');
+      // Mostrar la respuesta correcta
+      const correctOption = document.querySelector(`.question[data-question="${currentQuestion}"] .trivia-option[data-correct="true"]`);
+      correctOption?.classList.add('bg-green-100', 'border-green-500');
+    }
+    
+    // Deshabilitar todas las opciones de la pregunta actual
+    document.querySelectorAll(`.question[data-question="${currentQuestion}"] .trivia-option`).forEach(opt => {
+      (opt as HTMLButtonElement).disabled = true;
+    });
+    
+    // Pasar a la siguiente pregunta después de un breve retraso
+    setTimeout(() => {
+      if (currentQuestion < 4) {
+        document.querySelector(`.question[data-question="${currentQuestion}"]`)?.classList.add('hidden');
+        currentQuestion++;
+        document.querySelector(`.question[data-question="${currentQuestion}"]`)?.classList.remove('hidden');
+      } else {
+        // Mostrar resultados
+        document.getElementById('trivia-questions')?.classList.add('hidden');
+        document.getElementById('trivia-results')?.classList.remove('hidden');
+        const correctAnswersElement = document.getElementById('correct-answers');
+        if (correctAnswersElement) correctAnswersElement.textContent = correctAnswers.toString();
+        
+        // Mensaje según la cantidad de respuestas correctas
+        const resultMessage = document.getElementById('result-message');
+        if (correctAnswers === 4) {
+          if (resultMessage) resultMessage.textContent = '¡Perfecto! Nos conoces muy bien.';
+          resultMessage?.classList.add('bg-green-100', 'text-green-800');
+        } else if (correctAnswers >= 2) {
+          if (resultMessage) resultMessage.textContent = '¡Muy bien! Nos conoces bastante.';
+          resultMessage?.classList.add('bg-blue-100', 'text-blue-800');
+        } else {
+          if (resultMessage) resultMessage.textContent = 'Parece que aún tienes mucho por conocer de nosotros.';
+          resultMessage?.classList.add('bg-amber-100', 'text-amber-800');
+        }
+      }
+    }, 1500);
+  }
+  
+  // Cuenta regresiva
+  function startCountdown() {
+    const weddingDate = new Date('September 13, 2025 20:30:00').getTime();
+    
+    const countdown = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      const daysElement = document.getElementById('days');
+      const hoursElement = document.getElementById('hours');
+      const minutesElement = document.getElementById('minutes');
+      const secondsElement = document.getElementById('seconds');
+      
+      if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+      if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+      if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+      if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+      
+      if (distance < 0) {
+        clearInterval(countdown);
+        if (daysElement) daysElement.textContent = '00';
+        if (hoursElement) hoursElement.textContent = '00';
+        if (minutesElement) minutesElement.textContent = '00';
+        if (secondsElement) secondsElement.textContent = '00';
+      }
+    }, 1000);
+  }
+  
+  // Ejecutar en la carga inicial
+  document.addEventListener('DOMContentLoaded', initInvitation);
+  
+  // Ejecutar después de las transiciones de página de Astro
+  document.addEventListener('astro:page-load', initInvitation);
+  
+  // También ejecutar después del intercambio de contenido
+  document.addEventListener('astro:after-swap', initInvitation);
+</script>
+
+<style>
+  .invitation-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .invitation-section {
+    scroll-margin-top: 80px;
+  }
+  
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
