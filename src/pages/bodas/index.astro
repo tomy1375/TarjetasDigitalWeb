@@ -16,7 +16,7 @@ import Footer from '../../components/Footer.astro';
         </h1>
         <p class="text-xl mb-12">SORPRENDE A TUS INVITADOS</p>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {[
             {
               name: "MARTINA & MARCOS",
@@ -40,20 +40,20 @@ import Footer from '../../components/Footer.astro';
             }
           ].map(design => (
             <div class="flex flex-col items-center">
-              <a href={design.link} class="block relative mb-4 transform transition-transform hover:scale-105">
+              <a href={design.link} class="block relative mb-2 sm:mb-4 transform transition-transform hover:scale-105">
                 <div class="phone-mockup">
                   <img 
                     src={design.image || "/placeholder.svg"} 
                     alt={design.name}
-                    class="w-[250px] h-[500px] object-cover rounded-3xl border-8 border-black relative z-10"
+                    class="w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] h-auto aspect-[1/2] object-cover rounded-3xl border-4 sm:border-8 border-black relative z-10"
                   />
-                  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-b-xl z-20"></div>
+                  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 md:w-20 h-3 sm:h-4 md:h-6 bg-black rounded-b-xl z-20"></div>
                 </div>
               </a>
-              <h3 class="text-lg font-medium">{design.name}</h3>
+              <h3 class="text-sm sm:text-base md:text-lg font-medium">{design.name}</h3>
               <a 
                 href={design.link} 
-                class="mt-2 text-amber-300 hover:text-amber-200 transition"
+                class="mt-1 sm:mt-2 text-xs sm:text-sm text-amber-300 hover:text-amber-200 transition"
               >
                 Ver invitación →
               </a>
@@ -71,7 +71,14 @@ import Footer from '../../components/Footer.astro';
   .phone-mockup {
     position: relative;
     padding: 0;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    border-radius: 2rem;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .phone-mockup {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      border-radius: 2rem;
+    }
   }
 </style>
