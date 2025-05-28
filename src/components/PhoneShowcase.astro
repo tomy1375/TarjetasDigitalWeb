@@ -1,5 +1,23 @@
 ---
-// Definir las props con tipos
+// Definir las props usando JSDoc para proporcionar información de tipos
+/**
+ * @typedef {Object} ImageItem
+ * @property {string} src - URL de la imagen
+ * @property {string} alt - Texto alternativo
+ * @property {string} [name] - Nombre opcional
+ * @property {string} [link] - Enlace opcional
+ */
+
+/**
+ * @type {Object} Props
+ * @property {string} title - Título de la sección
+ * @property {string} subtitle - Subtítulo de la sección
+ * @property {string} id - ID único para la sección
+ * @property {ImageItem[]} images - Array de imágenes
+ * @property {string} buttonText - Texto del botón principal
+ * @property {string} buttonLink - Enlace del botón principal
+ */
+
 const { title, subtitle, id, images, buttonText, buttonLink } = Astro.props;
 ---
 
@@ -10,19 +28,42 @@ const { title, subtitle, id, images, buttonText, buttonLink } = Astro.props;
       <p class="text-gray-600">{subtitle}</p>
     </div>
     
-    <div class="flex flex-wrap justify-center gap-4 mb-12">
-      {images.map((image) => (
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
+      {images && images.map((image: { src: string; alt: string; name?: string; link?: string }) => (
         <div class="relative">
-          <div class="phone-mockup">
-            <img 
-              src={image.src || "/placeholder.svg"}
-              alt={image.alt}
-              class="w-[250px] h-[500px] object-cover rounded-3xl border-8 border-black relative z-10"
-            />
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-b-xl z-20"></div>
-          </div>
+          {image.link ? (
+            <a href={image.link} class="block transform transition-transform hover:scale-105 cursor-pointer">
+              <div class="phone-mockup">
+                <img 
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt || ""}
+                  class="w-full max-w-[150px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[250px] h-auto aspect-[1/2] object-cover rounded-3xl border-4 sm:border-6 md:border-8 border-black relative z-10 mx-auto"
+                />
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-10 sm:w-12 md:w-16 lg:w-20 h-2 sm:h-3 md:h-4 lg:h-6 bg-black rounded-b-xl z-20"></div>
+              </div>
+            </a>
+          ) : (
+            <div class="phone-mockup">
+              <img 
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt || ""}
+                class="w-full max-w-[150px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[250px] h-auto aspect-[1/2] object-cover rounded-3xl border-4 sm:border-6 md:border-8 border-black relative z-10 mx-auto"
+              />
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-10 sm:w-12 md:w-16 lg:w-20 h-2 sm:h-3 md:h-4 lg:h-6 bg-black rounded-b-xl z-20"></div>
+            </div>
+          )}
+          
           {image.name && (
-            <p class="text-center mt-4 text-sm font-medium">{image.name}</p>
+            <h3 class="text-xs sm:text-sm md:text-base lg:text-lg font-medium text-center mt-2">{image.name}</h3>
+          )}
+          
+          {image.link && (
+            <a 
+              href={image.link} 
+              class="mt-1 sm:mt-2 text-xs sm:text-sm text-amber-300 hover:text-amber-200 transition block text-center"
+            >
+              Ver invitación →
+            </a>
           )}
         </div>
       ))}
