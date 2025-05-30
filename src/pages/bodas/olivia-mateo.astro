@@ -7,7 +7,7 @@ import Layout from '../../layouts/Layout.astro';
     <!-- Portada -->
     <section class="invitation-section h-screen flex flex-col justify-center items-center relative" id="portada-section">
       <img 
-        src="/placeholder.svg?height=1080&width=1920&query=elegant minimalist wedding background with white flowers" 
+        src="/cas2.jpg" 
         alt="Olivia y Mateo" 
         class="absolute inset-0 w-full h-full object-cover"
       />
@@ -38,7 +38,7 @@ import Layout from '../../layouts/Layout.astro';
           </div>
           
           <!-- <p class="text-gray-700 mb-8 text-lg">Presiona el corazón para escuchar nuestra canción</p> -->
-           <div class="w-1/2 h-px bg-amber-600 mx-auto mb-4"></div>
+           <div class="w-1/2 h-px bg-amber-600 mx-auto mb-4 mt-4"></div>
          <button id="play-heart" 
   class="relative mx-auto block transform transition hover:scale-110 mb-9 mt-3 
          before:content-[''] before:absolute before:top-1/2 before:left-[-2rem] 
@@ -46,14 +46,12 @@ import Layout from '../../layouts/Layout.astro';
          after:content-[''] after:absolute after:top-1/2 after:right-[-2rem] 
          after:w-5 after:h-[2px] after:bg-amber-600 after:-translate-y-1/2">
   
-  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="#be185d" stroke="#be185d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart mx-auto">
-    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-  </svg>
+ <svg fill="#7f7c58" width="40px" height="40px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" ><title>heart</title><path d="M256 418Q187 369 149 337 110 305 87 269 64 233 64 192 64 153 93 125 121 96 160 96 199 96 228 125 256 153 256 192 256 153 285 125 313 96 352 96 391 96 420 125 448 153 448 192 448 234 425 271 401 307 363 339 324 371 256 418Z" /></svg>
 </button>
 
           
           <audio id="background-music" loop>
-            <source src="/bodatema.mp3" type="audio/mp3">
+            <source src="/delaa.mp3" type="audio/mp3">
           </audio>
         </div>
           <div class="">
@@ -66,9 +64,9 @@ import Layout from '../../layouts/Layout.astro';
       
       <section class="py-5 bg-white text-center relative">
         <div class="w-1/2 h-px bg-amber-600 mx-auto mb-4"></div>
-        <h2 class=" text-gray-700 font-normal tracking-wide leading-relaxed max-w-2xl mx-auto px-4 ">
+        <p class=" text-gray-700 text-base font-light tracking-wide leading-relaxed max-w-2xl mx-auto px-4 ">
          Prometemos amarnos y cuidarnos mutuamente mientras caminamos juntos por el camino del matrimonio.
-        </h2>
+        </p>
         <div class="w-1/2 h-px bg-amber-600 mx-auto mt-4"></div>
       </section>
        <section class="py-12 bg-white text-center relative">
@@ -76,20 +74,23 @@ import Layout from '../../layouts/Layout.astro';
   <img src="/manos.png" alt="" class="w-20">
 </div>
 
-        <h2 class="text-4xl allura mb-6 text-gray-700">
+        <h2 class="text-4xl parisienne mb-6 text-gray-700">
          Con la bendición de Dios y nuestros queridos padres.
         </h2>
         
-        <h2 class="text-xl font-semibold mb-2 text-gray-700">
-         Padres de la Novia
-        </h2>
-        <p class="text-lg font-light mb-2 text-gray-700">Angelica Zapata Silve</p>
-        <p class="text-lg font-light mb-2 text-gray-700">Miguel Huaman Aguiree</p>
-          <h2 class="text-xl font-semibold mb-2 mt-6 text-gray-700">
-         Padres del Novio
-        </h2>
-        <p class="text-lg font-light mb-2 text-gray-700">Angelica Zapata Silve</p>
-        <p class="text-lg font-light mb-2 text-gray-700">Miguel Huaman Aguiree</p>
+   <h2 class="text-xl font-semibold mb-2 text-gray-700">
+  Padres de la Novia
+</h2>
+<p class="text-lg font-light mb-2 text-gray-700">María Elena González</p>
+<p class="text-lg font-light mb-2 text-gray-700">Jorge Andrés Ramírez</p>
+
+<h2 class="text-xl font-semibold mb-2 mt-6 text-gray-700">
+  Padres del Novio
+</h2>
+<p class="text-lg font-light mb-2 text-gray-700">Ana Isabel Torres</p>
+<p class="text-lg font-light mb-2 text-gray-700">Carlos Eduardo Herrera</p>
+
+
         <div class="w-1/2 h-px bg-amber-600 mx-auto mt-4"></div>
         <div class="mt-5">
              <img 
@@ -100,26 +101,26 @@ import Layout from '../../layouts/Layout.astro';
             </section>
             <!-- Cuenta regresiva -->
             <section class="invitation-section py-2 text-center">
-        <h2 class="text-4xl allura  text-gray-700 text-center">
+        <h2 class="text-4xl parisienne  text-gray-700 text-center">
         Tenemos el agrado de invitarlos
         </h2>
-        <h2 class="text-4xl allura mb-6 text-gray-700 text-center">a Nuestra Boda</h2>
+        <h2 class="text-4xl parisienne mb-6 text-gray-700 text-center">a Nuestra Boda</h2>
         
         <!-- Fecha estética -->
         <div class="mb-8">
           <div class="flex items-center justify-center mb-4">
-            <div class="w-16 h-px bg-rose-300"></div>
+            <div class="w-16 h-px bg-amber-600"></div>
             <div class="mx-6 text-center">
-              <div class="text-6xl allura text-rose-600 mb-2">15</div>
+              <div class="text-6xl parisienne text-amber-600 mb-2">15</div>
               <div class="text-lg font-medium text-gray-600 uppercase tracking-widest">Noviembre</div>
               <div class="text-2xl font-bold text-gray-800">2025</div>
             </div>
-            <div class="w-16 h-px bg-rose-300"></div>
+            <div class="w-16 h-px bg-amber-600"></div>
           </div>
         </div>
         
         <div class="container mx-auto px-4">
-          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-ambbg-amber-600 playfair">FALTAN</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-amber-600 playfair">FALTAN</h2>
           
           <div class="countdown-container flex justify-center gap-4 md:gap-8 mb-12">
             <div class="countdown-item">
@@ -147,38 +148,38 @@ import Layout from '../../layouts/Layout.astro';
       
       <!-- Carrusel de imágenes -->
 <section class="invitation-section py-16 bg-white">
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto ">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 playfair">Nuestros Momentos</h2>
       
-      <div class="relative overflow-hidden rounded-lg shadow-lg">
+      <div class="relative overflow-hidden shadow-lg">
         <div id="carousel-container" class="flex transition-transform duration-500 ease-in-out">
           <div class="w-full flex-shrink-0">
             <img 
-              src="/placeholder.svg?height=400&width=600&query=romantic couple moment 1" 
+              src="/car1.jpg" 
               alt="Momento especial 1" 
-              class="w-full h-80 object-cover"
+              class="w-full h-[65vh] object-cover"
             />
           </div>
           <div class="w-full flex-shrink-0">
             <img 
-              src="/placeholder.svg?height=400&width=600&query=romantic couple moment 2" 
+              src="/car4.jpg" 
               alt="Momento especial 2" 
-              class="w-full h-80 object-cover"
+              class="w-full h-[65vh] object-cover"
             />
           </div>
           <div class="w-full flex-shrink-0">
             <img 
-              src="/placeholder.svg?height=400&width=600&query=romantic couple moment 3" 
+              src="/car2.jpg" 
               alt="Momento especial 3" 
-              class="w-full h-80 object-cover"
+              class="w-full h-[65vh] object-cover"
             />
           </div>
           <div class="w-full flex-shrink-0">
             <img 
-              src="/placeholder.svg?height=400&width=600&query=romantic couple moment 4" 
+              src="/car3.jpg" 
               alt="Momento especial 4" 
-              class="w-full h-80 object-cover"
+              class="w-full h-[65vh] object-cover"
             />
           </div>
         </div>
@@ -495,7 +496,7 @@ import Layout from '../../layouts/Layout.astro';
 </section>
       
       <!-- Trivia -->
-      <section class="invitation-section py-16 bg-rose-50 text-center">
+      <section class="invitation-section py-16 bg-gray-50 text-center">
         <div class="container mx-auto px-4">
           <div class="max-w-lg mx-auto">
             <h2 class="text-2xl font-medium mb-6 text-gray-800">¿CUÁNTO NOS CONOCES?</h2>
@@ -571,13 +572,13 @@ import Layout from '../../layouts/Layout.astro';
       </section>
       
       <!-- Foto final -->
-      <section class="invitation-section py-16 text-center bg-gray-50">
-        <div class="container mx-auto px-4">
+      <section class="invitation-section text-center bg-gray-50 mb-9">
+        <div class="container mx-auto ">
           <div class="w-full">
             <img 
-              src="/placeholder.svg?height=1080&width=1920&query=elegant minimalist wedding couple" 
+              src="/cas1.jpg" 
               alt="Olivia y Mateo" 
-              class="w-full h-[70vh] object-cover rounded-lg shadow-lg mb-8 max-w-4xl mx-auto"
+              class="w-full h-[70vh] object-cover  shadow-lg mb-8 max-w-4xl mx-auto"
             />
             <h2 class="text-3xl md:text-4xl font-bold text-ambbg-amber-600 playfair mt-6">OLIVIA & MATEO</h2>
           </div>
@@ -588,7 +589,7 @@ import Layout from '../../layouts/Layout.astro';
       <footer class="py-10 bg-gray-900 text-white text-center">
         <div class="container mx-auto px-4">
           <div class="mb-6">
-            <h3 class="text-xl font-bold mb-2 playfair">La Tarjeta Digital</h3>
+            <h3 class="text-xl font-bold mb-2 playfair">zenith Invites</h3>
             <p class="text-gray-400 mb-4">Invitaciones digitales para eventos especiales</p>
           </div>
           
@@ -606,7 +607,7 @@ import Layout from '../../layouts/Layout.astro';
           
           <div class="text-sm text-gray-500">
             <p>¿Te gustó esta invitación? Contáctanos para crear la tuya.</p>
-            <p class="mt-2">&copy; {new Date().getFullYear()} La Tarjeta Digital. Todos los derechos reservados.</p>
+            <p class="mt-2">&copy; {new Date().getFullYear()} zenith invites. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
