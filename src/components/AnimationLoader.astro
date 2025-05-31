@@ -1,0 +1,253 @@
+---
+---
+<script is:inline>
+// Función para cargar scripts
+const loadScript = (src) => {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = () => {
+      console.error(`Error al cargar el script: ${src}`);
+      reject(new Error(`Error al cargar el script: ${src}`));
+    };
+    document.head.appendChild(script);
+  });
+};
+
+// Cargar GSAP y ScrollTrigger si no están ya cargados
+if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+  Promise.all([
+    typeof gsap === 'undefined' ? loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js') : Promise.resolve(),
+    typeof ScrollTrigger === 'undefined' ? loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js') : Promise.resolve()
+  ]).then(() => {
+    console.log('GSAP y ScrollTrigger cargados desde CDN');
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      console.log('ScrollTrigger registrado correctamente');
+      setTimeout(initWeddingAnimations, 100); // Pequeño retraso para asegurar que todo esté listo
+    } else {
+      console.error('GSAP o ScrollTrigger no están definidos después de la carga.');
+    }
+  }).catch(err => {
+    console.error('Error al cargar GSAP o ScrollTrigger:', err);
+  });
+} else {
+  // Si ya están cargados, registrar ScrollTrigger (si no lo está) e inicializar
+  if (gsap.registerPlugin && typeof ScrollTrigger !== 'undefined' && !ScrollTrigger.isRegistered) { 
+     gsap.registerPlugin(ScrollTrigger);
+     console.log('ScrollTrigger registrado (ya estaba GSAP)');
+  }
+  setTimeout(initWeddingAnimations, 100);
+}
+
+function initWeddingAnimations() {
+  console.log('Inicializando animaciones de boda con GSAP');
+
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.warn('GSAP o ScrollTrigger no están disponibles. No se pueden inicializar animaciones.');
+    return;
+  }
+
+  // Animaciones para la sección de portada (Hero.astro o la portada de cada invitación)
+  const heroTl = gsap.timeline({ delay: 0.2 }); 
+  heroTl.fromTo(".gsap-hero-logo", 
+             { autoAlpha: 0, y: -20 }, 
+             { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" })
+        .fromTo(".gsap-hero-title", 
+             { autoAlpha: 0, y: 20 }, 
+             { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
+        .fromTo(".gsap-hero-subtitle", 
+             { autoAlpha: 0, y: 20 }, 
+             { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
+        // MODIFICACIÓN AQUÍ: Usar fromTo y autoAlpha para el botón
+        .fromTo(".gsap-hero-button", 
+             { autoAlpha: 0, scale: 0.8 }, 
+             { autoAlpha: 1, scale: 1, duration: 0.8, ease: "back.out(1.4)" }, "-=0.6")
+        .fromTo(".gsap-hero-banner", 
+             { autoAlpha: 0, y: 20 }, 
+             { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.6");
+
+  // Animación general para secciones al hacer scroll
+  document.querySelectorAll('.invitation-section, .gsap-scroll-section').forEach((section) => {
+    gsap.from(section.querySelectorAll("h1, h2, h3, p, img, div.countdown-container, form, .phone-mockup, .gsap-animate-item"), {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%", 
+        end: "bottom 15%",
+        toggleActions: "play none none none", 
+        once: true, 
+      },
+      autoAlpha: 0, // Usar autoAlpha para opacidad y visibilidad
+      y: 40, 
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.15 
+    });
+  });
+
+  // Animación para los contadores regresivos
+  gsap.from(".countdown-item > div:first-child", { 
+    scrollTrigger: {
+      trigger: ".countdown-container",
+      start: "top 80%",
+      once: true,
+    },
+    textContent: "00",
+    duration: 1.5,
+    ease: "power1.inOut",
+    snap: { textContent: 1 }, 
+    stagger: 0.2
+  });
+  
+  const musicButton = document.getElementById('play-music') || document.querySelector('.gsap-music-button') || document.getElementById('play-heart');
+  if (musicButton) {
+    gsap.from(musicButton, {
+      scrollTrigger: {
+        trigger: musicButton,
+        start: "top 90%", 
+        once: true,
+      },
+      autoAlpha: 0, // Usar autoAlpha
+      scale: 0.5,
+      duration: 0.8,
+      ease: "elastic.out(1, 0.75)"
+    });
+  }
+
+  gsap.from(".gsap-gallery-image", {
+    scrollTrigger: {
+      trigger: ".gsap-gallery-container", 
+      start: "top 80%",
+      once: true,
+    },
+    autoAlpha: 0, // Usar autoAlpha
+    scale: 0.9,
+    duration: 0.7,
+    stagger: 0.2,
+    ease: "power2.out"
+  });
+  
+  ScrollTrigger.refresh();
+  console.log('Animaciones de boda GSAP inicializadas y ScrollTrigger refrescado.');
+}
+
+window.activateWeddingContentAnimations = (containerElement) => {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.warn('GSAP o ScrollTrigger no están disponibles para activar animaciones de contenido.');
+    return;
+  }
+  console.log('Activando animaciones para contenido de boda específico:', containerElement);
+  
+  containerElement.querySelectorAll('.invitation-section, .gsap-scroll-section').forEach((section) => {
+    gsap.from(section.querySelectorAll("h1, h2, h3, p, img, div.countdown-container, form, .phone-mockup, .gsap-animate-item"), {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%",
+        end: "bottom 15%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+      autoAlpha: 0, // Usar autoAlpha
+      y: 40,
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.15
+    });
+  });
+
+  const countdownInContainer = containerElement.querySelector(".countdown-container");
+  if (countdownInContainer) {
+    gsap.from(countdownInContainer.querySelectorAll(".countdown-item > div:first-child"), {
+      scrollTrigger: {
+        trigger: countdownInContainer,
+        start: "top 80%",
+        once: true,
+      },
+      textContent: "00",
+      duration: 1.5,
+      ease: "power1.inOut",
+      snap: { textContent: 1 },
+      stagger: 0.2
+    });
+  }
+
+  const musicButtonInContainer = containerElement.querySelector('#play-music') || containerElement.querySelector('.gsap-music-button') || containerElement.querySelector('#play-heart');
+  if (musicButtonInContainer) {
+    gsap.from(musicButtonInContainer, {
+      scrollTrigger: {
+        trigger: musicButtonInContainer,
+        start: "top 90%",
+        once: true,
+      },
+      autoAlpha: 0, // Usar autoAlpha
+      scale: 0.5,
+      duration: 0.8,
+      ease: "elastic.out(1, 0.75)"
+    });
+  }
+  
+  const galleryInContainer = containerElement.querySelector(".gsap-gallery-container");
+  if (galleryInContainer) {
+    gsap.from(galleryInContainer.querySelectorAll(".gsap-gallery-image"), {
+      scrollTrigger: {
+        trigger: galleryInContainer,
+        start: "top 80%",
+        once: true,
+      },
+      autoAlpha: 0, // Usar autoAlpha
+      scale: 0.9,
+      duration: 0.7,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+  }
+
+  ScrollTrigger.refresh(); 
+  console.log('ScrollTrigger refrescado después de activar animaciones de contenido específico.');
+};
+
+document.addEventListener('astro:after-swap', () => {
+  console.log('Evento astro:after-swap detectado.');
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      
+      const invitationContent = document.getElementById('invitation-content');
+      if (!invitationContent || !invitationContent.classList.contains('hidden')) {
+        console.log('Contenido de invitación no encontrado o visible por defecto en after-swap, inicializando animaciones generales.');
+        setTimeout(initWeddingAnimations, 100); 
+      } else {
+        console.log('Contenido de invitación encontrado y oculto en after-swap. Las animaciones se activarán manualmente.');
+      }
+  }
+});
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    const invitationContent = document.getElementById('invitation-content');
+    if (!invitationContent || !invitationContent.classList.contains('hidden')) {
+      console.log('Contenido de invitación no encontrado o visible por defecto en DOMContentLoaded, inicializando animaciones generales.');
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && ScrollTrigger.isRegistered) {
+        initWeddingAnimations();
+      } else {
+        console.log('GSAP/ScrollTrigger aún no listos en DOMContentLoaded, se esperará a la carga de scripts.');
+      }
+    } else {
+      console.log('Contenido de invitación encontrado y oculto en DOMContentLoaded. Las animaciones se activarán manualmente.');
+    }
+  });
+} else { 
+  const invitationContent = document.getElementById('invitation-content');
+  if (!invitationContent || !invitationContent.classList.contains('hidden')) {
+    console.log('Contenido de invitación no encontrado o visible por defecto (documento ya cargado), inicializando animaciones generales.');
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && ScrollTrigger.isRegistered) {
+      initWeddingAnimations();
+    } else {
+      console.log('GSAP/ScrollTrigger aún no listos (documento ya cargado), se esperará a la carga de scripts.');
+    }
+  } else {
+    console.log('Contenido de invitación encontrado y oculto (documento ya cargado). Las animaciones se activarán manualmente.');
+  }
+}
+</script>

@@ -2,23 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Nicole & Elian - Invitación de Boda">
+<Layout title="Olivia & Mateo - Invitación de Boda">
   <div class="invitation-container">
     <!-- Portada -->
-    <section class="invitation-section h-screen flex flex-col justify-center items-center relative">
+    <section class="invitation-section h-screen flex flex-col justify-center items-center relative" id="portada-section">
       <img 
-        src="/placeholder.svg?height=1080&width=1920&query=couple embracing in sunset" 
-        alt="Nicole y Elian" 
+        src="/introcasamiento.jpg" 
+        alt="Olivia y Mateo" 
         class="absolute inset-0 w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
       
       <div class="z-10 text-center text-white px-4">
         <h1 class="text-4xl md:text-5xl font-bold mb-4 playfair">NICOLE & ELIAN</h1>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          NOS EMBARCAMOS EN UNA AVENTURA Y NUESTRA BODA NO ESTARÍA COMPLETA SIN TU PRESENCIA
-        </p>
-        <button id="enter-btn" class="bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-6 rounded transition">
+        <!-- <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+          NOS CASAMOS Y QUEREMOS COMPARTIR ESTE MOMENTO TAN ESPECIAL CONTIGO
+        </p> -->
+        <button id="enter-btn" class="bg-amber-600 hover:bg-rose-800 text-white font-medium py-2 px-6 rounded-md transition mt-4">
           INGRESAR
         </button>
       </div>
@@ -26,62 +26,1007 @@ import Layout from '../../layouts/Layout.astro';
     
     <!-- Contenido principal (inicialmente oculto) -->
     <div id="invitation-content" class="hidden">
-      <!-- Nos casamos -->
-      <section class="invitation-section py-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-amber-700 playfair">¡NOS CASAMOS!</h2>
+      <!-- Nos casamos - Sección minimalista con la imagen proporcionada -->
+     <section class="invitation-section bg-white text-center">
+  <div class="container mx-auto">
+    <!-- Contenedor relativo para la imagen y el corazón superpuesto -->
+    <div class="relative">
+      <!-- Botón del corazón superpuesto -->
+      <button
+        id="play-heart"
+   class="absolute top-[85%] left-40 z-50 ml-2
+               bg-white p-3 rounded-full shadow-lg flex items-center justify-center"
+      >
+        <!-- Líneas horizontales dentro del botón para que se muevan con él -->
+        <span class="absolute left-[-2rem] w-5 h-[2px] bg-amber-600 -translate-y-1/2"></span>
+        <svg fill="#7f7c58" width="40px" height="40px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <title>heart</title>
+          <path
+            d="M256 418Q187 369 149 337 110 305 87 269 64 233 64 192 64 153 93 125 121 96 160 96 199 96 228 125 256 153 256 192 256 153 285 125 313 96 352 96 391 96 420 125 448 153 448 192 448 234 425 271 401 307 363 339 324 371 256 418Z"
+          />
+        </svg>
+        <span class="absolute right-[-2rem] w-5 h-[2px] bg-amber-600 -translate-y-1/2"></span>
+      </button>
+
+      <!-- Primera imagen -->
+      <img src="/nicole.png" alt="Olivia y Mateo - Nos Casamos" class="w-full h-[100vh] object-cover" />
+    </div>
+
+    <!-- Elemento de audio -->
+    <audio id="background-music" loop>
+      <source src="/delaa.mp3" type="audio/mp3" />
+    </audio>
+  </div>
+
+  <!-- Segunda imagen (fuera del primer contenedor, como en tu estructura original) -->
+  <div class="">
+    <img src="/elian2.jpg" alt="Olivia y Mateo - Nos Casados" class="w-full h-[35vh] object-cover" />
+  </div>
+</section>
+      
+      <section class="py-5 bg-white text-center relative mt-2">
+        <div class="w-1/2 h-px bg-amber-600 mx-auto mb-4"></div>
+        <p class=" text-gray-700 text-base font-light tracking-wide leading-relaxed max-w-2xl mx-auto px-4 ">
+         Prometemos amarnos y cuidarnos mutuamente mientras caminamos juntos por el camino del matrimonio.
+        </p>
+        <div class="w-1/2 h-px bg-amber-600 mx-auto mt-4"></div>
+      </section>
+       <section class="py-12 bg-white text-center relative">
+        <div class="flex justify-center mb-9">
+  <img src="/manos.png" alt="" class="w-20">
+</div>
+
+        <h2 class="text-4xl parisienne mb-6 text-gray-700">
+         Con la bendición de Dios y nuestros queridos padres.
+        </h2>
         
-        <div class="countdown-container flex justify-center gap-4 md:gap-8 mb-12">
-          <div class="countdown-item">
-            <div id="days" class="text-3xl md:text-5xl font-bold">00</div>
-            <div class="text-xs uppercase text-gray-500">DÍAS</div>
-          </div>
-          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
-          <div class="countdown-item">
-            <div id="hours" class="text-3xl md:text-5xl font-bold">00</div>
-            <div class="text-xs uppercase text-gray-500">HORAS</div>
-          </div>
-          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
-          <div class="countdown-item">
-            <div id="minutes" class="text-3xl md:text-5xl font-bold">00</div>
-            <div class="text-xs uppercase text-gray-500">MINUTOS</div>
-          </div>
-          <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
-          <div class="countdown-item">
-            <div id="seconds" class="text-3xl md:text-5xl font-bold">00</div>
-            <div class="text-xs uppercase text-gray-500">SEGUNDOS</div>
+   <h2 class="text-xl font-semibold mb-2 text-gray-700">
+  Padres de la Novia
+</h2>
+<p class="text-lg font-light mb-2 text-gray-700">María Elena González</p>
+<p class="text-lg font-light mb-2 text-gray-700">Jorge Andrés Ramírez</p>
+
+<h2 class="text-xl font-semibold mb-2 mt-6 text-gray-700">
+  Padres del Novio
+</h2>
+<p class="text-lg font-light mb-2 text-gray-700">Ana Isabel Torres</p>
+<p class="text-lg font-light mb-2 text-gray-700">Carlos Eduardo Herrera</p>
+
+
+        <div class="w-1/2 h-px bg-amber-600 mx-auto mt-4"></div>
+        <div class="mt-5">
+             <img 
+               src="/tager2.jpg" 
+               alt="Olivia y Mateo - Nos Casamos" 
+               class="w-full h-[35vh] object-cover"
+             />
+            </section>
+            <!-- Cuenta regresiva -->
+            <section class="invitation-section py-2 text-center">
+        <h2 class="text-4xl parisienne  text-gray-700 text-center">
+        Tenemos el agrado de invitarlos
+        </h2>
+        <h2 class="text-4xl parisienne mb-6 text-gray-700 text-center">a Nuestra Boda</h2>
+        
+        <!-- Fecha estética -->
+        <div class="mb-8">
+          <div class="flex items-center justify-center mb-4">
+            <div class="w-16 h-px bg-amber-600"></div>
+            <div class="mx-6 text-center">
+              <div class="text-6xl parisienne text-amber-600 mb-2">15</div>
+              <div class="text-lg font-medium text-gray-600 uppercase tracking-widest">Noviembre</div>
+              <div class="text-2xl font-bold text-gray-800">2025</div>
+            </div>
+            <div class="w-16 h-px bg-amber-600"></div>
           </div>
         </div>
         
-        <p class="text-lg max-w-2xl mx-auto mb-8 px-4">
-          PROMETEMOS AMARNOS Y CUIDARNOS MUTUAMENTE MIENTRAS CAMINAMOS JUNTOS POR EL CAMINO DEL MATRIMONIO.
-        </p>
-        
-        <button id="play-music" class="bg-amber-700 hover:bg-amber-800 text-white rounded-full p-3 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        </button>
-        <audio id="background-music" loop>
-          <source src="/placeholder-music.mp3" type="audio/mp3">
-        </audio>
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-amber-600 playfair">FALTAN</h2>
+          
+          <div class="countdown-container flex justify-center gap-4 md:gap-8 mb-12">
+            <div class="countdown-item">
+              <div id="days" class="text-3xl md:text-5xl font-bold">00</div>
+              <div class="text-xs uppercase text-gray-500">DÍAS</div>
+            </div>
+            <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+            <div class="countdown-item">
+              <div id="hours" class="text-3xl md:text-5xl font-bold">00</div>
+              <div class="text-xs uppercase text-gray-500">HORAS</div>
+            </div>
+            <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+            <div class="countdown-item">
+              <div id="minutes" class="text-3xl md:text-5xl font-bold">00</div>
+              <div class="text-xs uppercase text-gray-500">MINUTOS</div>
+            </div>
+            <div class="countdown-separator text-3xl md:text-5xl font-bold">:</div>
+            <div class="countdown-item">
+              <div id="seconds" class="text-3xl md:text-5xl font-bold">00</div>
+              <div class="text-xs uppercase text-gray-500">SEGUNDOS</div>
+            </div>
+          </div>
+        </div>
       </section>
       
-      <!-- Resto de secciones similares a la invitación de Candela & Elias pero con colores en tonos ámbar -->
+      <!-- Carrusel de imágenes -->
+<section class="invitation-section  bg-white mt-9">
+  <div class="container mx-auto ">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 playfair">Nuestros Momentos</h2>
+      
+      <div class="relative overflow-hidden shadow-lg">
+        <div id="carousel-container" class="flex transition-transform duration-500 ease-in-out">
+          <div class="w-full flex-shrink-0">
+            <img 
+              src="/car1.jpg" 
+              alt="Momento especial 1" 
+              class="w-full h-[65vh] object-cover"
+            />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img 
+              src="/car4.jpg" 
+              alt="Momento especial 2" 
+              class="w-full h-[65vh] object-cover"
+            />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img 
+              src="/car2.jpg" 
+              alt="Momento especial 3" 
+              class="w-full h-[65vh] object-cover"
+            />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img 
+              src="/car3.jpg" 
+              alt="Momento especial 4" 
+              class="w-full h-[65vh] object-cover"
+            />
+          </div>
+        </div>
+        
+        <!-- Botones de navegación -->
+        <button 
+          id="prev-btn" 
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+        
+        <button 
+          id="next-btn" 
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+        
+        <!-- Indicadores -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="0"></button>
+          <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="1"></button>
+          <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="2"></button>
+          <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="3"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      
+      <!-- Cuándo -->
+      <section class="invitation-section py-16 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <div class="mb-6 flex justify-center">
+             <img 
+    src="/calendar.gif" 
+    alt="Calendario animado"
+    width="80" 
+    height="80"
+    class="w-20 h-20 rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+            </div>
+            <h2 class="text-2xl font-medium mb-2 text-gray-700">¿CUÁNDO?</h2>
+            <p class="text-xl font-bold mb-8 text-ambbg-amber-600">15 DE NOVIEMBRE 2025</p>
+            
+            <div class="border-t border-b border-gray-200 py-8 my-8">
+              <h3 class="text-xl font-medium mb-6 playfair">ITINERARIO</h3>
+              
+              <div class="mb-10">
+                        <div class="mb-6 flex justify-center">
+             <img 
+    src="/civil.gif" 
+    alt="Calendario animado"
+    width="80" 
+    height="80"
+    class="w-20 h-20 rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+            </div>
+                <h4 class="text-lg font-bold mb-1">CIVIL</h4>
+                <p class="text-gray-600 mb-4">| 11:30 HS |</p>
+                <button 
+                  id="civil-location" 
+                  class="inline-block border border-ambbg-amber-600 text-ambbg-amber-600 hover:bg-rose-50 font-medium py-2 px-6 rounded transition cursor-pointer"
+                >
+                  CÓMO LLEGAR
+                </button>
+              </div>
+              
+              <div class="mb-10">
+                           <div class="mb-6 flex justify-center">
+             <img 
+    src="/iglesia.gif" 
+    alt="Calendario animado"
+    width="80" 
+    height="80"
+    class="w-24 h-w-24 rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+            </div>
+                <h4 class="text-lg font-bold mb-1">CEREMONIA</h4>
+                <p class="text-gray-600 mb-4">| 19:30 HS |</p>
+                <button 
+                  id="ceremony-location" 
+                  class="inline-block border border-ambbg-amber-600 text-ambbg-amber-600 hover:bg-rose-50 font-medium py-2 px-6 rounded transition cursor-pointer"
+                >
+                  CÓMO LLEGAR
+                </button>
+              </div>
+              
+              <div>
+                      <div class="mb-6 flex justify-center">
+             <img 
+    src="/fiesta2.gif" 
+    alt="Calendario animado"
+    width="80" 
+    height="80"
+    class="w-24 h-w-24 rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+            </div>
+                <h4 class="text-lg font-bold mb-1">FIESTA</h4>
+                <p class="text-gray-600 mb-4">| 22:00 HS |</p>
+                <button 
+                  id="party-location" 
+                  class="inline-block border border-ambbg-amber-600 text-ambbg-amber-600 hover:bg-rose-50 font-medium py-2 px-6 rounded transition cursor-pointer"
+                >
+                  CÓMO LLEGAR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal de Google Maps -->
+      <div id="maps-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black/70" id="maps-backdrop"></div>
+        <div class="relative z-10 bg-white rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+          <button id="close-maps" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 z-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+              <path d="M18 6 6 18"/>
+              <path d="m6 6 12 12"/>
+            </svg>
+          </button>
+          <div id="modal-content">
+            <h3 id="location-title" class="text-xl font-bold text-ambbg-amber-600 mb-4 text-center"></h3>
+            <div id="location-details" class="mb-4 text-center"></div>
+            <div id="map-container" class="w-full h-64 mb-4 rounded-lg overflow-hidden">
+              <iframe 
+                id="google-map" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <div class="flex gap-4 justify-center">
+              <a 
+                id="directions-link" 
+                target="_blank" 
+                class="bg-amber-600 hover:bg-rose-800 text-white font-medium py-2 px-6 rounded transition"
+              >
+                Abrir en Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Regalo -->
+      <section class="invitation-section py-16 text-center bg-amber-600">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+                           <div class="mb-6 flex justify-center">
+             <img 
+    src="/regalo.gif" 
+    alt="Calendario animado"
+    width="80" 
+    height="80"
+    class="w-24 h-w-24 rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+            </div>
+            <h2 class="text-2xl font-medium mb-6 text-white">EL REGALO</h2>
+            <p class="text-white mb-6">
+              NUESTRO MEJOR REGALO ES QUE ESTÉS CON NOSOTROS EN NUESTRO DÍA, PERO SI QUIERES HACERNOS UN OBSEQUIO, AQUÍ ESTÁ NUESTRO NÚMERO DE CUENTA:
+            </p>
+            <button id="show-account" class="bg-transparent border border-white text-white font-medium py-2 px-6 rounded">
+              VER CUENTA
+            </button>
+            
+            <div id="account-details" class="hidden mt-6 p-4 bg-gray-50 rounded-lg">
+              <p class="font-medium text-gray-700 mb-2">Banco: Banco Nación</p>
+              <p class="font-medium text-gray-700 mb-2">Titular: Olivia Fernández</p>
+              <p class="font-medium text-gray-700 mb-4">Alias: BODA.OLIVIA.MATEO</p>
+              <p class="text-sm text-gray-600">¡Muchas gracias por tu regalo!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Dress Code -->
+      <section class="invitation-section py-16 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <div class="mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-ambbg-amber-600"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+            </div>
+            <h2 class="text-2xl font-medium mb-2 text-gray-700">DRESS CODE</h2>
+            <p class="text-xl font-bold mb-6 text-ambbg-amber-600">FORMAL ELEGANTE</p>
+            <hr class="w-24 mx-auto border-t-2 border-gray-200 mb-6" />
+            <p class="text-gray-600">
+              EL BLANCO ES UN COLOR HERMOSO,<br />
+              PERO EN NUESTRA BODA ES<br />
+              EXCLUSIVO PARA LA NOVIA
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Confirmación -->
+<section class="invitation-section py-16 text-center bg-amber-600">
+  <div class="container mx-auto px-4">
+    <div class="max-w-lg mx-auto">
+                         <div class="mb-6 flex justify-center">
+             <img 
+    src="/asistencia2.gif" 
+    alt="Calendario animado"
+    width="80" 
+    height="80"
+    class="w-24 h-w-24 rounded-lg"
+    loading="lazy"
+    decoding="async"
+  />
+            </div>
+      <h2 class="text-2xl font-medium mb-6 text-white">CONFIRMÁ TU ASISTENCIA</h2>
+      <p class="text-white mb-2">ANTES DEL 15 DE OCTUBRE</p>
+      
+      <!-- Botón para mostrar modal de valores de tarjeta -->
+      <button id="show-card-values" class="mb-6 bg-transparent border border-white text-white font-medium py-2 px-6 rounded">
+        VALORES TARJETA
+      </button>
+      
+      <!-- Modal de valores de tarjeta (inicialmente oculto) -->
+      <div id="card-values-modal" class="fixed inset-0 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen">
+          <div class="absolute inset-0 bg-black/70" id="modal-backdrop"></div>
+          <div class="relative z-10 bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <button id="close-card-values" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+            </button>
+            <h3 class="text-xl font-bold text-amber-600 mb-4 text-center">VALORES TARJETA</h3>
+            <div class="space-y-4">
+              <p class="text-lg font-bold text-center">NOVIEMBRE $52.800</p>
+              <div class="border-t border-gray-200 pt-4">
+                <p class="mb-2">4 a 10 AÑOS ABONAN mitad de tarjeta</p>
+                <p class="mb-4">0 a 3 NO ABONAN TARJETA</p>
+              </div>
+              <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="font-medium">CUENTA DE PAGO</p>
+                <p class="font-bold">ALIAS: BODA.OLIVIA.MATEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario personalizado que envía a Google Forms -->
+      <form id="rsvp-form" class="text-left">
+        <div class="mb-4">
+          <label for="attendance" class="block text-sm font-medium text-white mb-1">¿Asistirás a nuestra boda?</label>
+          <select id="attendance" name="attendance" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Sí, asistiré">Sí, asistiré</option>
+            <option value="No podré asistir">No podré asistir</option>
+          </select>
+        </div>
+        
+        <div id="guests-container" class="mb-4 hidden">
+          <label for="guests" class="block text-sm font-medium text-white mb-1">¿Vienes acompañado/a?</label>
+          <select id="guests" name="guests" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+            <option value="1">Solo/a</option>
+            <option value="2">Con acompañante</option>
+          </select>
+        </div>
+
+        <div id="guests-forms" class="hidden">
+          <div id="guest-1" class="mb-6">
+            <p class="font-medium mb-2 text-white">Datos del invitado</p>
+            <div class="mb-3">
+              <label for="name-1" class="block text-sm font-medium text-white mb-1">Nombre *</label>
+              <input type="text" id="name-1" name="name-1" class="w-full px-4 py-2 border border-white bg-transparent text-white placeholder-white/70 rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+            </div>
+            <div class="mb-3">
+              <label for="lastname-1" class="block text-sm font-medium text-white mb-1">Apellido *</label>
+              <input type="text" id="lastname-1" name="lastname-1" class="w-full px-4 py-2 border border-white bg-transparent text-white placeholder-white/70 rounded-md focus:ring-2 focus:ring-white focus:border-transparent" required />
+            </div>
+            <div>
+              <label for="diet-1" class="block text-sm font-medium text-white mb-1">¿Algún requerimiento en la alimentación?</label>
+              <select id="diet-1" name="diet-1" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                <option value="Ninguno">Ninguno</option>
+                <option value="Vegetariano">Vegetariano</option>
+                <option value="Vegano">Vegano</option>
+                <option value="Celíaco">Celíaco</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Formulario para el acompañante (inicialmente oculto) -->
+          <div id="guest-2" class="mb-6 hidden">
+            <p class="font-medium mb-2 text-white">Datos del acompañante</p>
+            <div class="mb-3">
+              <label for="name-2" class="block text-sm font-medium text-white mb-1">Nombre *</label>
+              <input type="text" id="name-2" name="name-2" class="w-full px-4 py-2 border border-white bg-transparent text-white placeholder-white/70 rounded-md focus:ring-2 focus:ring-white focus:border-transparent" />
+            </div>
+            <div class="mb-3">
+              <label for="lastname-2" class="block text-sm font-medium text-white mb-1">Apellido *</label>
+              <input type="text" id="lastname-2" name="lastname-2" class="w-full px-4 py-2 border border-white bg-transparent text-white placeholder-white/70 rounded-md focus:ring-2 focus:ring-white focus:border-transparent" />
+            </div>
+            <div>
+              <label for="diet-2" class="block text-sm font-medium text-white mb-1">¿Algún requerimiento en la alimentación?</label>
+              <select id="diet-2" name="diet-2" class="w-full px-4 py-2 border border-white bg-transparent text-white rounded-md focus:ring-2 focus:ring-white focus:border-transparent">
+                <option value="Ninguno">Ninguno</option>
+                <option value="Vegetariano">Vegetariano</option>
+                <option value="Vegano">Vegano</option>
+                <option value="Celíaco">Celíaco</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="music-container" class="mb-4 hidden">
+          <label for="music" class="block text-sm font-medium text-white mb-1">¿Qué canción no puede faltar en la fiesta?</label>
+          <input type="text" id="music" name="music" class="w-full px-4 py-2 border border-white bg-transparent text-white placeholder-white/70 rounded-md focus:ring-2 focus:ring-white focus:border-transparent" placeholder="Artista - Canción" />
+        </div>
+
+        <!-- Mensaje de estado del formulario -->
+        <div id="form-status" class="hidden mb-4 p-4 rounded-md"></div>
+
+        <button type="submit" id="submit-button" class="w-full bg-white text-amber-600 font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition">
+          Confirmar Asistencia
+        </button>
+      </form>
+
+      <!-- Mensaje de confirmación (inicialmente oculto) -->
+      <div id="success-message" class="hidden mt-6 p-4 bg-white/20 backdrop-blur border border-white/30 text-white rounded-lg">
+        <p class="font-medium text-lg mb-2">¡Confirmación enviada exitosamente!</p>
+        <p class="text-sm">Gracias por confirmar tu asistencia. Nos vemos en nuestra boda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+      
+      <!-- Trivia -->
+      <section class="invitation-section py-16 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <h2 class="text-2xl font-medium mb-6 text-gray-800">¿CUÁNTO NOS CONOCES?</h2>
+            <p class="text-gray-600 mb-8">Responde estas preguntas y descubre cuánto sabes de nosotros</p>
+            
+            <div id="trivia-container">
+              <div id="trivia-questions">
+                <div class="question" data-question="1">
+                  <h3 class="text-xl font-medium mb-4 text-ambbg-amber-600">¿Dónde nos conocimos?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">En la universidad</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="true">En la fiesta de un amigo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">En el trabajo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Por una app de citas</button>
+                  </div>
+                </div>
+                
+                <div class="question hidden" data-question="2">
+                  <h3 class="text-xl font-medium mb-4 text-ambbg-amber-600">¿Cuánto tiempo llevamos juntos?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">2 años</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">3 años</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="true">4 años</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">6 años</button>
+                  </div>
+                </div>
+                
+                <div class="question hidden" data-question="3">
+                  <h3 class="text-xl font-medium mb-4 text-ambbg-amber-600">¿Cuál es nuestro lugar favorito para vacacionar?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Montañas</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="true">Playa</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Ciudad</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Campo</button>
+                  </div>
+                </div>
+                
+                <div class="question hidden" data-question="4">
+                  <h3 class="text-xl font-medium mb-4 text-ambbg-amber-600">¿Quién propuso matrimonio?</h3>
+                  <div class="grid grid-cols-1 gap-3">
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="true">Mateo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Olivia</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Fue mutuo</button>
+                    <button class="trivia-option p-3 border border-gray-300 rounded-md hover:bg-rose-100 transition" data-correct="false">Los padres arreglaron todo</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="trivia-results" class="hidden">
+                <h3 class="text-2xl font-bold mb-4 text-ambbg-amber-600">¡Resultados!</h3>
+                <p class="text-lg mb-4">Has acertado <span id="correct-answers">0</span> de 4 preguntas</p>
+                <div id="result-message" class="mb-6 p-4 bg-rose-100 rounded-lg"></div>
+                <button id="restart-trivia" class="bg-amber-600 hover:bg-rose-800 text-white font-medium py-2 px-6 rounded transition">
+                  Volver a jugar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Fotos -->
+      <section class="invitation-section py-16 text-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-lg mx-auto">
+            <h2 class="text-2xl font-medium mb-6 text-gray-800">QUEREMOS VER TUS FOTOS</h2>
+            <p class="text-gray-600 mb-6">
+              PUEDEN USAR NUESTRO # EN TODAS SUS PUBLICACIONES DE INSTAGRAM<br />
+              <span class="font-bold text-ambbg-amber-600">#OLIVIAYMATEO2025</span>
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Foto final -->
+      <section class="invitation-section text-center bg-gray-50 mb-9">
+        <div class="container mx-auto ">
+          <div class="w-full">
+            <img 
+              src="/cas1.jpg" 
+              alt="Olivia y Mateo" 
+              class="w-full h-[70vh] object-cover  shadow-lg mb-8 max-w-4xl mx-auto"
+            />
+            <h2 class="text-3xl md:text-4xl font-bold text-ambbg-amber-600 playfair mt-6">OLIVIA & MATEO</h2>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Footer de la empresa -->
+      <footer class="py-10 bg-gray-900 text-white text-center">
+        <div class="container mx-auto px-4">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-2 playfair">zenith Invites</h3>
+            <p class="text-gray-400 mb-4">Invitaciones digitales para eventos especiales</p>
+          </div>
+          
+          <div class="flex justify-center space-x-6 mb-6">
+            <a href="https://instagram.com/latarjetadigital" target="_blank" class="text-gray-400 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://facebook.com/latarjetadigital" target="_blank" class="text-gray-400 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/5491112345678" target="_blank" class="text-gray-400 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
+          
+          <div class="text-sm text-gray-500">
+            <p>¿Te gustó esta invitación? Contáctanos para crear la tuya.</p>
+            <p class="mt-2">&copy; {new Date().getFullYear()} zenith invites. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </Layout>
 
 <script>
-  // Scripts similares a la invitación de Candela & Elias
-  document.getElementById('enter-btn').addEventListener('click', function() {
-    document.getElementById('invitation-content').classList.remove('hidden');
-    document.getElementById('enter-btn').closest('.invitation-section').classList.add('hidden');
+  // Datos de ubicaciones
+  const locations = {
+    civil: {
+      title: "CEREMONIA CIVIL",
+      address: "Registro Civil Central",
+      details: "Av. Corrientes 1234, Buenos Aires",
+      time: "11:30 HS",
+      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168903552!2d-58.3815591!3d-34.6037389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjUiUyA1OMKwMjInNTMuNiJX!5e0!3m2!1ses!2sar!4v1234567890",
+      directionsUrl: "https://maps.google.com/?q=Registro+Civil+Central,+Buenos+Aires"
+    },
+    ceremony: {
+      title: "CEREMONIA RELIGIOSA",
+      address: "Iglesia San Miguel",
+      details: "Av. Santa Fe 5678, Buenos Aires",
+      time: "19:30 HS",
+      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168903552!2d-58.3815591!3d-34.6037389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjUiUyA1OMKwMjInNTMuNiJX!5e0!3m2!1ses!2sar!4v1234567890",
+      directionsUrl: "https://maps.google.com/?q=Iglesia+San+Miguel,+Buenos+Aires"
+    },
+    party: {
+      title: "FIESTA",
+      address: "Salón de Eventos El Jardín",
+      details: "Av. del Libertador 9012, Buenos Aires",
+      time: "22:00 HS",
+      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168903552!2d-58.3815591!3d-34.6037389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjUiUyA1OMKwMjInNTMuNiJX!5e0!3m2!1ses!2sar!4v1234567890",
+      directionsUrl: "https://maps.google.com/?q=Salón+de+Eventos+El+Jardín,+Buenos+Aires"
+    }
+  };
+
+  // Función principal de inicialización
+  function initInvitation() {
+    console.log('Inicializando invitación...');
+    
+    // Establecer fecha/hora actual cuando se carga el formulario
+    const datetimeField = document.getElementById('datetime-field') as HTMLInputElement;
+    if (datetimeField) {
+      const now = new Date();
+      const formattedDateTime = now.toLocaleString('es-AR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      datetimeField.value = formattedDateTime;
+    }
+    
+    // Solución para el botón INGRESAR
+    const enterBtn = document.getElementById('enter-btn');
+    if (enterBtn) {
+      // Eliminar event listeners anteriores
+      const newEnterBtn = enterBtn.cloneNode(true);
+      if (enterBtn.parentNode) {
+        enterBtn.parentNode.replaceChild(newEnterBtn, enterBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newEnterBtn.addEventListener('click', function() {
+        showContent();
+      });
+    }
+    
+    // Inicializar botón de corazón para reproducir música
+    const playHeartBtn = document.getElementById('play-heart');
+    if (playHeartBtn) {
+      // Eliminar event listeners anteriores
+      const newPlayHeartBtn = playHeartBtn.cloneNode(true);
+      if (playHeartBtn.parentNode) {
+        playHeartBtn.parentNode.replaceChild(newPlayHeartBtn, playHeartBtn);
+      }
+      
+      // Agregar nuevo event listener con anotación de tipo para this
+      newPlayHeartBtn.addEventListener('click', function(this: HTMLButtonElement) {
+        const music = document.getElementById('background-music') as HTMLAudioElement;
+        if (music?.paused) {
+          music.play()
+            .then(() => {
+              // Animar el corazón cuando se reproduce la música
+              this.classList.add('scale-110', 'text-rose-600');
+            })
+            .catch(error => {
+              console.error('Error al reproducir música:', error);
+            });
+        } else {
+          music?.pause();
+          this.classList.remove('scale-110', 'text-rose-600');
+        }
+      });
+    }
+    
+    // Inicializar botones de ubicación
+    initLocationButtons();
+    
+    // Inicializar botón de cuenta
+    const showAccountBtn = document.getElementById('show-account');
+    if (showAccountBtn) {
+      // Eliminar event listeners anteriores
+      const newShowAccountBtn = showAccountBtn.cloneNode(true);
+      if (showAccountBtn.parentNode) {
+        showAccountBtn.parentNode.replaceChild(newShowAccountBtn, showAccountBtn);
+      }
+      
+      // Agregar nuevo event listener con anotación de tipo para this
+      newShowAccountBtn.addEventListener('click', function(this: HTMLButtonElement) {
+        const accountDetails = document.getElementById('account-details');
+        if (accountDetails?.classList.contains('hidden')) {
+          accountDetails.classList.remove('hidden');
+          this.textContent = 'OCULTAR CUENTA';
+        } else {
+          accountDetails?.classList.add('hidden');
+          this.textContent = 'VER CUENTA';
+        }
+      });
+    }
+    
+    // Inicializar modal de valores de tarjeta
+    const showCardValuesBtn = document.getElementById('show-card-values');
+    const cardValuesModal = document.getElementById('card-values-modal');
+    const closeCardValuesBtn = document.getElementById('close-card-values');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    
+    if (showCardValuesBtn && cardValuesModal) {
+      // Eliminar event listeners anteriores
+      const newShowCardValuesBtn = showCardValuesBtn.cloneNode(true);
+      if (showCardValuesBtn.parentNode) {
+        showCardValuesBtn.parentNode.replaceChild(newShowCardValuesBtn, showCardValuesBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newShowCardValuesBtn.addEventListener('click', function() {
+        if (cardValuesModal) {
+          cardValuesModal.classList.remove('hidden');
+          cardValuesModal.querySelector('.flex')?.classList.remove('hidden');
+        }
+      });
+    }
+    
+    if (closeCardValuesBtn && cardValuesModal) {
+      // Eliminar event listeners anteriores
+      const newCloseCardValuesBtn = closeCardValuesBtn.cloneNode(true);
+      if (closeCardValuesBtn.parentNode) {
+        closeCardValuesBtn.parentNode.replaceChild(newCloseCardValuesBtn, closeCardValuesBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newCloseCardValuesBtn.addEventListener('click', function() {
+        if (cardValuesModal) {
+          cardValuesModal.classList.add('hidden');
+        }
+      });
+    }
+    
+    if (modalBackdrop && cardValuesModal) {
+      // Eliminar event listeners anteriores
+      const newModalBackdrop = modalBackdrop.cloneNode(true);
+      if (modalBackdrop.parentNode) {
+        modalBackdrop.parentNode.replaceChild(newModalBackdrop, modalBackdrop);
+      }
+      
+      // Agregar nuevo event listener
+      newModalBackdrop.addEventListener('click', function() {
+        cardValuesModal?.classList.add('hidden');
+      });
+    }
+    
+    
+    // Inicializar trivia
+    initTrivia();
+    
+    // Inicializar carrusel
+    initCarousel();
+
+// Inicializar formulario de confirmación
+initRSVPForm();
+  }
+
+  // Función para inicializar botones de ubicación
+  function initLocationButtons() {
+    const locationButtons = [
+      { id: 'civil-location', type: 'civil' },
+      { id: 'ceremony-location', type: 'ceremony' },
+      { id: 'party-location', type: 'party' }
+    ];
+
+    locationButtons.forEach(({ id, type }) => {
+      const button = document.getElementById(id);
+      if (button) {
+        // Eliminar event listeners anteriores
+        const newButton = button.cloneNode(true);
+        if (button.parentNode) {
+          button.parentNode.replaceChild(newButton, button);
+        }
+        
+        // Agregar nuevo event listener
+        newButton.addEventListener('click', function() {
+          showLocationModal(type);
+        });
+      }
+    });
+
+    // Inicializar modal de mapas
+    const mapsModal = document.getElementById('maps-modal');
+    const closeMapsBtn = document.getElementById('close-maps');
+    const mapsBackdrop = document.getElementById('maps-backdrop');
+
+    if (closeMapsBtn && mapsModal) {
+      // Eliminar event listeners anteriores
+      const newCloseMapsBtn = closeMapsBtn.cloneNode(true);
+      if (closeMapsBtn.parentNode) {
+        closeMapsBtn.parentNode.replaceChild(newCloseMapsBtn, closeMapsBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newCloseMapsBtn.addEventListener('click', function() {
+        mapsModal?.classList.add('hidden');
+        mapsModal?.classList.remove('flex');
+      });
+    }
+
+    if (mapsBackdrop && mapsModal) {
+      // Eliminar event listeners anteriores
+      const newMapsBackdrop = mapsBackdrop.cloneNode(true);
+      if (mapsBackdrop.parentNode) {
+        mapsBackdrop.parentNode.replaceChild(newMapsBackdrop, mapsBackdrop);
+      }
+      
+      // Agregar nuevo event listener
+      newMapsBackdrop.addEventListener('click', function() {
+        mapsModal?.classList.add('hidden');
+        mapsModal?.classList.remove('flex');
+      });
+    }
+  }
+
+  // Función para mostrar modal de ubicación
+function showLocationModal(locationType: string) {
+  const location = locations[locationType as keyof typeof locations];
+  if (!location) return;
+
+    const modal = document.getElementById('maps-modal');
+    const title = document.getElementById('location-title');
+    const details = document.getElementById('location-details');
+    const iframe = document.getElementById('google-map') as HTMLIFrameElement;
+    const directionsLink = document.getElementById('directions-link') as HTMLAnchorElement;
+
+    if (title) title.textContent = location.title;
+    if (details) {
+      details.innerHTML = `
+        <p class="font-semibold text-gray-800">${location.address}</p>
+        <p class="text-gray-600">${location.details}</p>
+        <p class="text-ambbg-amber-600 font-medium">${location.time}</p>
+      `;
+    }
+    if (iframe) iframe.src = location.embedUrl;
+    if (directionsLink) directionsLink.href = location.directionsUrl;
+
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+  
+  // Función para mostrar el contenido principal
+  function showContent() {
+    const invitationContent = document.getElementById('invitation-content');
+    const portadaSection = document.getElementById('portada-section');
+    
+    if (invitationContent) invitationContent.classList.remove('hidden');
+    if (portadaSection) portadaSection.classList.add('hidden');
     
     // Iniciar cuenta regresiva
     startCountdown();
-  });
+  }
+  
+  // Inicializar trivia
+  function initTrivia() {
+    // Reiniciar variables
+    currentQuestion = 1;
+    correctAnswers = 0;
+    
+    // Resetear todas las preguntas
+    document.querySelectorAll('.question').forEach(question => {
+      question.classList.add('hidden');
+    });
+    const firstQuestion = document.querySelector('.question[data-question="1"]');
+    if (firstQuestion) firstQuestion.classList.remove('hidden');
+    
+    // Resetear opciones
+    document.querySelectorAll('.trivia-option').forEach(option => {
+      // Eliminar event listeners anteriores
+      const newOption = option.cloneNode(true);
+      if (option.parentNode) {
+        option.parentNode.replaceChild(newOption, option);
+      }
+      
+      // Agregar nuevo event listener con anotación de tipo para this
+      newOption.addEventListener('click', handleTriviaOptionClick);
+    });
+    
+    // Reiniciar trivia
+    const restartTriviaBtn = document.getElementById('restart-trivia');
+    if (restartTriviaBtn) {
+      // Eliminar event listeners anteriores
+      const newRestartBtn = restartTriviaBtn.cloneNode(true);
+      if (restartTriviaBtn.parentNode) {
+        restartTriviaBtn.parentNode.replaceChild(newRestartBtn, restartTriviaBtn);
+      }
+      
+      // Agregar nuevo event listener
+      newRestartBtn.addEventListener('click', initTrivia);
+    }
+    
+    // Mostrar preguntas y ocultar resultados
+    const triviaQuestions = document.getElementById('trivia-questions');
+    const triviaResults = document.getElementById('trivia-results');
+    if (triviaQuestions) triviaQuestions.classList.remove('hidden');
+    if (triviaResults) triviaResults.classList.add('hidden');
+  }
+  
+  // Variables para trivia
+  let currentQuestion = 1;
+  let correctAnswers = 0;
+  
+  // Manejar clic en opción de trivia
+  function handleTriviaOptionClick(this: HTMLElement) {
+    // Verificar respuesta
+    if (this.getAttribute('data-correct') === 'true') {
+      correctAnswers++;
+      this.classList.add('bg-green-100', 'border-green-500');
+    } else {
+      this.classList.add('bg-red-100', 'border-red-500');
+      // Mostrar la respuesta correcta
+      const correctOption = document.querySelector(`.question[data-question="${currentQuestion}"] .trivia-option[data-correct="true"]`);
+      correctOption?.classList.add('bg-green-100', 'border-green-500');
+    }
+    
+    // Deshabilitar todas las opciones de la pregunta actual
+    document.querySelectorAll(`.question[data-question="${currentQuestion}"] .trivia-option`).forEach(opt => {
+      (opt as HTMLButtonElement).disabled = true;
+    });
+    
+    // Pasar a la siguiente pregunta después de un breve retraso
+    setTimeout(() => {
+      if (currentQuestion < 4) {
+        document.querySelector(`.question[data-question="${currentQuestion}"]`)?.classList.add('hidden');
+        currentQuestion++;
+        document.querySelector(`.question[data-question="${currentQuestion}"]`)?.classList.remove('hidden');
+      } else {
+        // Mostrar resultados
+        document.getElementById('trivia-questions')?.classList.add('hidden');
+        document.getElementById('trivia-results')?.classList.remove('hidden');
+        const correctAnswersElement = document.getElementById('correct-answers');
+        if (correctAnswersElement) correctAnswersElement.textContent = correctAnswers.toString();
+        
+        // Mensaje según la cantidad de respuestas correctas
+        const resultMessage = document.getElementById('result-message');
+        if (correctAnswers === 4) {
+          if (resultMessage) resultMessage.textContent = '¡Perfecto! Nos conoces muy bien.';
+          resultMessage?.classList.add('bg-green-100', 'text-green-800');
+        } else if (correctAnswers >= 2) {
+          if (resultMessage) resultMessage.textContent = '¡Muy bien! Nos conoces bastante.';
+          resultMessage?.classList.add('bg-blue-100', 'text-blue-800');
+        } else {
+          if (resultMessage) resultMessage.textContent = 'Parece que aún tienes mucho por conocer de nosotros.';
+          resultMessage?.classList.add('bg-amber-100', 'text-amber-800');
+        }
+      }
+    }, 1500);
+  }
   
   // Cuenta regresiva
   function startCountdown() {
-    const weddingDate = new Date('October 15, 2025 19:00:00').getTime();
+    const weddingDate = new Date('November 15, 2025 19:30:00').getTime();
     
     const countdown = setInterval(function() {
       const now = new Date().getTime();
@@ -92,32 +1037,418 @@ import Layout from '../../layouts/Layout.astro';
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
-      document.getElementById('days').textContent = days.toString().padStart(2, '0');
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      const daysElement = document.getElementById('days');
+      const hoursElement = document.getElementById('hours');
+      const minutesElement = document.getElementById('minutes');
+      const secondsElement = document.getElementById('seconds');
+      
+      if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+      if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+      if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+      if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
       
       if (distance < 0) {
         clearInterval(countdown);
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        if (daysElement) daysElement.textContent = '00';
+        if (hoursElement) hoursElement.textContent = '00';
+        if (minutesElement) minutesElement.textContent = '00';
+        if (secondsElement) secondsElement.textContent = '00';
       }
     }, 1000);
   }
   
-  // Reproducir/pausar música
-  document.getElementById('play-music').addEventListener('click', function() {
-    const music = document.getElementById('background-music');
-    if (music.paused) {
-      music.play();
-      this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause"><rect width="4" height="16" x="6" y="4"/><rect width="4" height="16" x="14" y="4"/></svg>';
-    } else {
-      music.pause();
-      this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  // Variables para el carrusel
+let currentSlide = 0;
+const totalSlides = 4;
+let carouselInterval: ReturnType<typeof setInterval> | null = null;
+
+// Función para inicializar el carrusel
+function initCarousel() {
+  const container = document.getElementById('carousel-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  if (!container) return;
+  
+  // Función para ir a una diapositiva específica
+  function goToSlide(slideIndex: number) {
+    currentSlide = slideIndex;
+    const translateX = -currentSlide * 100;
+    
+    // Verificación de null para evitar el error de TypeScript
+    if (container) {
+      container.style.transform = `translateX(${translateX}%)`;
     }
+    
+    // Actualizar indicadores
+    indicators.forEach((indicator, index) => {
+      if (index === currentSlide) {
+        indicator.classList.remove('bg-white/60');
+        indicator.classList.add('bg-white');
+      } else {
+        indicator.classList.remove('bg-white');
+        indicator.classList.add('bg-white/60');
+      }
+    });
+  }
+  
+  // Función para ir a la siguiente diapositiva
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
+  }
+  
+  // Función para ir a la diapositiva anterior
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    goToSlide(currentSlide);
+  }
+  
+  // Event listeners para botones de navegación
+  if (prevBtn) {
+    const newPrevBtn = prevBtn.cloneNode(true);
+    if (prevBtn.parentNode) {
+      prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+    }
+    newPrevBtn.addEventListener('click', prevSlide);
+  }
+  
+  if (nextBtn) {
+    const newNextBtn = nextBtn.cloneNode(true);
+    if (nextBtn.parentNode) {
+      nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+    }
+    newNextBtn.addEventListener('click', nextSlide);
+  }
+  
+  // Event listeners para indicadores
+  indicators.forEach((indicator, index) => {
+    const newIndicator = indicator.cloneNode(true);
+    if (indicator.parentNode) {
+      indicator.parentNode.replaceChild(newIndicator, indicator);
+    }
+    newIndicator.addEventListener('click', () => goToSlide(index));
   });
+  
+  // Inicializar primera diapositiva
+  goToSlide(0);
+  
+  // Autoplay - cambiar cada 4 segundos
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
+  }
+  carouselInterval = setInterval(nextSlide, 4000);
+  
+  // Pausar autoplay cuando el mouse está sobre el carrusel
+  const carouselSection = container.closest('.invitation-section');
+  if (carouselSection) {
+    carouselSection.addEventListener('mouseenter', () => {
+      if (carouselInterval) {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+      }
+    });
+    
+    carouselSection.addEventListener('mouseleave', () => {
+      if (!carouselInterval) {
+        carouselInterval = setInterval(nextSlide, 4000);
+      }
+    });
+  }
+}
+
+// Función para limpiar el carrusel
+function cleanupCarousel() {
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
+    carouselInterval = null;
+  }
+}
+  
+  // Agregar evento para limpiar el carrusel cuando se abandona la página
+document.addEventListener('astro:before-swap', () => {
+  cleanupCarousel();
+});
+  
+  // Ejecutar en la carga inicial
+  document.addEventListener('DOMContentLoaded', initInvitation);
+  
+  // Ejecutar después de las transiciones de página de Astro
+  document.addEventListener('astro:page-load', initInvitation);
+  
+  // También ejecutar después del intercambio de contenido
+  document.addEventListener('astro:after-swap', initInvitation);
+
+// Función para inicializar el formulario RSVP
+function initRSVPForm() {
+  const form = document.getElementById('rsvp-form') as HTMLFormElement;
+  const attendanceSelect = document.getElementById('attendance') as HTMLSelectElement;
+  const guestsContainer = document.getElementById('guests-container');
+  const guestsForms = document.getElementById('guests-forms');
+  const musicContainer = document.getElementById('music-container');
+  const guestsSelect = document.getElementById('guests') as HTMLSelectElement;
+  const guest2Form = document.getElementById('guest-2');
+  const guest1Form = document.getElementById('guest-1');
+  
+  // Asegurarse de que el formulario siempre comience con "Selecciona una opción"
+  if (attendanceSelect) {
+    // Establecer el valor inicial
+    attendanceSelect.value = "";
+    
+    // Ocultar los contenedores adicionales al inicio
+    guestsContainer?.classList.add('hidden');
+    guestsForms?.classList.add('hidden');
+    musicContainer?.classList.add('hidden');
+    
+    // Quitar validación requerida de los campos al inicio
+    const name1 = document.getElementById('name-1') as HTMLInputElement;
+    const lastname1 = document.getElementById('lastname-1') as HTMLInputElement;
+    if (name1) name1.required = false;
+    if (lastname1) lastname1.required = false;
+    
+    // Manejar cambio en asistencia
+    attendanceSelect.addEventListener('change', function() {
+      if (this.value === 'Sí, asistiré') {
+        // Mostrar todo: selector de acompañantes, formularios completos y música
+        guestsContainer?.classList.remove('hidden');
+        guestsForms?.classList.remove('hidden');
+        musicContainer?.classList.remove('hidden');
+        
+        // Hacer campos requeridos
+        if (name1) name1.required = true;
+        if (lastname1) lastname1.required = true;
+        
+        // Mostrar campos de dieta para quien asiste
+        const dietContainer1 = document.querySelector('#guest-1 > div:last-child');
+        if (dietContainer1) dietContainer1.classList.remove('hidden');
+        
+      } else if (this.value === 'No podré asistir') {
+        // Solo mostrar formulario básico (nombre y apellido), sin dieta ni acompañantes
+        guestsContainer?.classList.add('hidden');
+        guestsForms?.classList.remove('hidden');
+        guest2Form?.classList.add('hidden');
+        musicContainer?.classList.add('hidden');
+        
+        // Mantener campos de nombre y apellido requeridos para saber quién no asistirá
+        if (name1) name1.required = true;
+        if (lastname1) lastname1.required = true;
+        
+        // Ocultar campo de dieta para quien no asiste
+        const dietContainer1 = document.querySelector('#guest-1 > div:last-child');
+        if (dietContainer1) dietContainer1.classList.add('hidden');
+        
+        // Resetear y ocultar campos del acompañante
+        const name2 = document.getElementById('name-2') as HTMLInputElement;
+        const lastname2 = document.getElementById('lastname-2') as HTMLInputElement;
+        if (name2) {
+          name2.required = false;
+          name2.value = '';
+        }
+        if (lastname2) {
+          lastname2.required = false;
+          lastname2.value = '';
+        }
+        
+        // Resetear selector de invitados a "Solo/a"
+        if (guestsSelect) guestsSelect.value = "1";
+        
+      } else {
+        // Si no se ha seleccionado nada, ocultar todo
+        guestsContainer?.classList.add('hidden');
+        guestsForms?.classList.add('hidden');
+        musicContainer?.classList.add('hidden');
+        
+        // Quitar validación requerida
+        if (name1) name1.required = false;
+        if (lastname1) lastname1.required = false;
+      }
+    });
+  }
+  
+  // Asegurarse de que el selector de invitados siempre comience en "Solo/a"
+  if (guestsSelect) {
+    // Establecer el valor inicial
+    guestsSelect.value = "1";
+    
+    // Ocultar el formulario del acompañante al inicio
+    guest2Form?.classList.add('hidden');
+    
+    // Quitar validación y limpiar campos del acompañante
+    const name2 = document.getElementById('name-2') as HTMLInputElement;
+    const lastname2 = document.getElementById('lastname-2') as HTMLInputElement;
+    if (name2) {
+      name2.required = false;
+      name2.value = '';
+    }
+    if (lastname2) {
+      lastname2.required = false;
+      lastname2.value = '';
+    }
+    
+    // Manejar cambio en número de invitados
+    guestsSelect.addEventListener('change', function() {
+      const numGuests = parseInt(this.value);
+      
+      if (numGuests === 2) {
+        guest2Form?.classList.remove('hidden');
+        // Hacer campos del acompañante requeridos
+        if (name2) name2.required = true;
+        if (lastname2) lastname2.required = true;
+      } else {
+        guest2Form?.classList.add('hidden');
+        // Quitar validación y limpiar campos
+        if (name2) {
+          name2.required = false;
+          name2.value = '';
+        }
+        if (lastname2) {
+          lastname2.required = false;
+          lastname2.value = '';
+        }
+      }
+    });
+  }
+  
+  // Manejar envío del formulario
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+      const statusDiv = document.getElementById('form-status') as HTMLDivElement;
+      const successMessage = document.getElementById('success-message');
+      
+      // Prevenir doble envío
+      if (submitButton.disabled) {
+        return;
+      }
+      
+      // Cambiar estado del botón
+      const originalButtonText = submitButton.innerText;
+      submitButton.innerText = 'ENVIANDO...';
+      submitButton.disabled = true;
+      
+      try {
+        // Preparar datos para Google Forms
+        const formData = new FormData();
+        
+        // Obtener valores del formulario
+        const attendance = (document.getElementById('attendance') as HTMLSelectElement).value;
+        const guests = (document.getElementById('guests') as HTMLSelectElement).value;
+        const name1 = (document.getElementById('name-1') as HTMLInputElement).value;
+        const lastname1 = (document.getElementById('lastname-1') as HTMLInputElement).value;
+        const diet1 = (document.getElementById('diet-1') as HTMLSelectElement).value;
+        const music = (document.getElementById('music') as HTMLInputElement).value;
+        
+        // URL del formulario
+        const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSddYZU8L93_UdIeBmh1oabthprutVHnQ7BCcJGGLnUK5nPTqw/formResponse';
+        
+        // Mapear valores exactos como aparecen en el formulario
+        formData.append('entry.418946990', attendance); // ¿Asistirás a nuestra boda?
+        formData.append('entry.475329848', guests === '2' ? 'Con acompañante' : 'Solo/a'); // ¿Vienes acompañado/a?
+        formData.append('entry.970513541', name1); // Nombre persona 1
+        formData.append('entry.1405717954', lastname1); // Apellido persona 1
+        
+        // Solo enviar dieta si la persona asiste
+        if (attendance === 'Sí, asistiré') {
+          formData.append('entry.1335111445', diet1); // Dieta persona 1
+          formData.append('entry.1954682270', music || ''); // Música
+        } else {
+          formData.append('entry.1335111445', ''); // Dieta vacía si no asiste
+          formData.append('entry.1954682270', ''); // Música vacía si no asiste
+        }
+
+        // SIEMPRE enviar los campos del acompañante (vacíos si no hay acompañante)
+        if (guests === '2' && attendance === 'Sí, asistiré') {
+          const name2 = (document.getElementById('name-2') as HTMLInputElement).value;
+          const lastname2 = (document.getElementById('lastname-2') as HTMLInputElement).value;
+          const diet2 = (document.getElementById('diet-2') as HTMLSelectElement).value;
+          
+          formData.append('entry.158501702', name2); // Nombre persona 2
+          formData.append('entry.2015412110', lastname2); // Apellido persona 2
+          formData.append('entry.748461797', diet2); // Dieta persona 2
+          
+          console.log('Enviando datos del acompañante:', { 
+            name2, 
+            lastname2, 
+            diet2,
+            'entry.158501702': name2,
+            'entry.2015412110': lastname2,
+            'entry.748461797': diet2
+          });
+        } else {
+          // Enviar campos vacíos si no hay acompañante
+          formData.append('entry.158501702', ''); // Nombre persona 2
+          formData.append('entry.2015412110', ''); // Apellido persona 2
+          formData.append('entry.748461797', ''); // Dieta persona 2
+        }
+        
+        // Debug completo antes de enviar
+        console.log('=== DATOS COMPLETOS A ENVIAR ===');
+        console.log('Asistencia:', attendance);
+        console.log('Invitados:', guests === '2' ? 'Con acompañante' : 'Solo/a');
+        console.log('Persona 1:', { nombre: name1, apellido: lastname1, dieta: attendance === 'Sí, asistiré' ? diet1 : 'N/A' });
+        console.log('Música:', attendance === 'Sí, asistiré' ? music : 'N/A');
+        if (guests === '2' && attendance === 'Sí, asistiré') {
+          const name2 = (document.getElementById('name-2') as HTMLInputElement).value;
+          const lastname2 = (document.getElementById('lastname-2') as HTMLInputElement).value;
+          const diet2 = (document.getElementById('diet-2') as HTMLSelectElement).value;
+          console.log('Persona 2:', { nombre: name2, apellido: lastname2, dieta: diet2 });
+        }
+        console.log('FormData entries:', [...formData.entries()]);
+        console.log('================================');
+        
+        const response = await fetch(googleFormURL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+        
+        // Personalizar mensaje según la respuesta
+        if (attendance === 'Sí, asistiré') {
+          statusDiv.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-4';
+          statusDiv.innerHTML = '<strong>¡Gracias!</strong> Tu confirmación de asistencia ha sido enviada correctamente. ¡Nos vemos en la boda!';
+        } else {
+          statusDiv.className = 'bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-md mb-4';
+          statusDiv.innerHTML = '<strong>Recibido.</strong> Lamentamos que no puedas asistir. Gracias por avisarnos.';
+        }
+        
+        statusDiv.classList.remove('hidden');
+        
+        form.style.display = 'none';
+        
+        // Personalizar mensaje de éxito según la respuesta
+        if (successMessage) {
+          if (attendance === 'Sí, asistiré') {
+            successMessage.innerHTML = '<p class="font-medium text-lg mb-2">¡Confirmación enviada exitosamente!</p><p class="text-sm">Gracias por confirmar tu asistencia. Nos vemos en nuestra boda.</p>';
+          } else {
+            successMessage.innerHTML = '<p class="font-medium text-lg mb-2">Respuesta registrada</p><p class="text-sm">Lamentamos que no puedas asistir. Gracias por avisarnos.</p>';
+          }
+          successMessage.classList.remove('hidden');
+        }
+        
+        form.reset();
+        
+        setTimeout(() => {
+          submitButton.innerText = originalButtonText;
+          submitButton.disabled = false;
+        }, 3000);
+        
+      } catch (error) {
+        console.error('Error al enviar:', error);
+        statusDiv.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4';
+        statusDiv.innerHTML = '<strong>Error:</strong> Hubo un problema al enviar tu confirmación. Por favor, intenta de nuevo.';
+        statusDiv.classList.remove('hidden');
+        
+        submitButton.innerText = originalButtonText;
+        submitButton.disabled = false;
+      }
+      
+      statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+}
 </script>
 
 <style>
@@ -133,5 +1464,17 @@ import Layout from '../../layouts/Layout.astro';
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  
+  #play-heart {
+    transition: all 0.3s ease;
+  }
+  
+  #play-heart:hover {
+    transform: scale(1.1);
+  }
+  
+  #play-heart:active {
+    transform: scale(0.95);
   }
 </style>

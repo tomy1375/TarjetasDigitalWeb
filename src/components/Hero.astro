@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<section class="relative h-screen flex flex-col items-center justify-center overflow-hidden text-white text-center">
   <div class="absolute inset-0 z-0">
     <!-- Video de fondo en loop -->
     <video 
@@ -10,39 +10,47 @@
       muted 
       playsinline
       class="w-full h-full object-cover brightness-50"
-      poster="/placeholder.svg?height=1080&width=1920&query=elegant wedding couple in black and white"
+      poster="/placeholder.svg?height=1080&width=1920"
     >
       <source src="/boda3.mp4" type="video/mp4" />
       <!-- Fallback para navegadores que no soportan video -->
       <img 
-        src="/placeholder.svg?height=1080&width=1920&query=elegant wedding couple in black and white" 
+        src="/placeholder.svg?height=1080&width=1920" 
         alt="Fondo de boda elegante" 
         class="w-full h-full object-cover brightness-50"
       />
     </video>
   </div>
   
-  <div class="container mx-auto px-4 z-10 text-center">
-    <div class="mb-6">
-      <img src="/logo.png" alt="La Tarjeta Digital" class="h-20 mx-auto mb-8" />
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 playfair tracking-wide">
+  <div class="relative z-10 flex flex-col items-center justify-center h-full container mx-auto px-4 py-8">
+    
+    <div class="gsap-hero-logo mb-auto pt-8 md:pt-12"> {/* Pushes logo to top, mb-auto pushes rest down */}
+      <img src="/logo.png" alt="La Tarjeta Digital" class="h-16 md:h-20 mx-auto" />
+    </div>
+
+    <div class="my-auto"> {/* Centers main content vertically */}
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 playfair tracking-wide gsap-hero-title">
         TÚ EVENTO MERECE UNA<br />
         <span class="text-amber-100">INVITACIÓN <em>ÚNICA</em></span>
       </h1>
-      <p class="text-white text-xl md:text-2xl mb-8">SORPRENDE A TUS INVITADOS</p>
+      <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 poppins gsap-hero-subtitle">
+        SORPRENDE A TUS INVITADOS
+      </p>
+      
+      <a 
+        href="https://wa.me/5491125040000" target="_blank" rel="noopener noreferrer"
+        class="inline-block bg-amber-700/90 hover:bg-amber-600 text-white font-semibold poppins py-3 px-10 rounded-md transition duration-300 ease-in-out transform hover:scale-105 gsap-hero-button text-base md:text-lg"
+      >
+        Chatear por WhatsApp
+      </a>
     </div>
     
-    <a 
-      href="#bodas" 
-      class="inline-block bg-amber-600 hover:bg-amber-800 text-white font-medium py-3 px-8 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
-    >
-      Chatear por WhatsApp
-    </a>
-    
-    <div class="mt-16 bg-amber-100/80 backdrop-blur-sm py-3 px-6 rounded-lg inline-block">
-      <p class="text-amber-900 font-medium">
-        ¿LA NECESITAS URGENTE? OFRECEMOS ENTREGA EN 24 HS
-      </p>
+    <div class="mt-auto pb-8 md:pb-12 gsap-hero-banner"> {/* Pushes banner to bottom, mt-auto pushes it from content above */}
+      <div class="bg-black/30 backdrop-blur-sm py-3 px-6 rounded-lg inline-block">
+        <p class="text-amber-100/90 font-medium text-sm md:text-base poppins">
+          ¿LA NECESITAS URGENTE? OFRECEMOS ENTREGA EN 24 HS
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -63,5 +71,21 @@
     video {
       object-position: center;
     }
+  }
+
+  /* Ensure the section itself is a flex container to allow vertical distribution */
+  section.relative.h-screen {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+  }
+  
+  /* The main content container within the hero */
+  div.relative.z-10 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space: logo top, banner bottom, content middle */
+    height: 100%; /* Take full height of parent */
   }
 </style>
